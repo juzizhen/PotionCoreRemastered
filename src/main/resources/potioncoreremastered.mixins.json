@@ -3,7 +3,11 @@
   "package": "com.juzizhen.potioncoreremastered.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EntityCameraMixin",
     "LivingEntityMixin"
+  ],
+  "client": [
+    "KeyboardInputMixin"
   ],
   "injectors": {
     "defaultRequire": 1

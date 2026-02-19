@@ -1,12 +1,44 @@
 package com.juzizhen.potioncoreremastered.effect;
 
+import com.juzizhen.potioncoreremastered.util.EffectClassifier;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 public class EffectCurse extends StatusEffect {
-    private static final String MODIFIER_UUID = "634287c8-8c07-4ead-be17-2ab54df049b0";
+    public EffectCurse() {
+        super(StatusEffectCategory.HARMFUL, 0);
+    }
 
-     public  EffectCurse(StatusEffectCategory type, int color) {
-         super(StatusEffectCategory.HARMFUL, 0x9C7B76);
-     }
+    @Override
+    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+        if (entity.getWorld().isClient) return;
+
+        Set<StatusEffect> badEffects = EffectClassifier.BAD_EFFECTS;
+        if (badEffects.isEmpty()) return;
+
+        int count = amplifier + 1;
+
+        List<StatusEffect> effectList = new ArrayList<>(badEffects);
+        effectList.remove(this);
+        count = Math.min(count, effectList.size());
+
+        Collections.shuffle(effectList);
+
+        for (int i = 0; i < count; i++) {
+            StatusEffect effect = effectList.get(i);
+            entity.addStatusEffect(new StatusEffectInstance(effect, 1200, 0));
+        }
+    }
+
+    @Override
+    public boolean canApplyUpdateEffect(int duration, int amplifier) {
+        return true;
+    }
 }

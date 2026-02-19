@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "potioncoreremastered",
+	"version": "${version}",
+	"name": "PotionCoreRemastered",
+	"description": "Adds a whole lot of potion effects to the game.",
+	"authors": [
+		"juzizhen"
+	],
+	"contact": {
+		"homepage": "https://github.com/juzizhen/PotionCorereMastered",
+		"sources": "https://github.com/juzizhen/PotionCorereMastered"
+	},
+	"license": "GPL-3.0",
+	"icon": "assets/potioncoreremastered/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.juzizhen.potioncoreremastered.PotionCoreRemastered"
+		]
+	},
+	"mixins": [
+		"potioncoreremastered.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

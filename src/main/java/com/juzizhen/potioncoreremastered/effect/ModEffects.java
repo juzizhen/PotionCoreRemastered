@@ -15,6 +15,8 @@ public class ModEffects {
     public static final StatusEffect CURE = new EffectCure();
     public static final StatusEffect DIAMOND_SKIN = new EffectDiamondSkin();
     public static final StatusEffect EXTENSION = new EffectExtension();
+    public static final StatusEffect REPAIR = new EffectRepair();
+    public static final StatusEffect REVIVAL = new EffectRevival();
 
     // 负面效果
     public static final StatusEffect BROKEN_ARMOR = new EffectBrokenArmor();
@@ -72,6 +74,12 @@ public class ModEffects {
 
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier("potioncoreremastered", "extension"), EXTENSION);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "repair"), REPAIR);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "revival"), REVIVAL);
 
         /*
          * 负面效果

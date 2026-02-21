@@ -94,6 +94,28 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.EXTENSION, 1800, 1)
     );
 
+    public static final Potion REPAIR_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.REPAIR, 3600, 0)
+    );
+    public static final Potion LONG_REPAIR_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.REPAIR, 9600, 0)
+    );
+    public static final Potion STRONG_REPAIR_POTION = new Potion(
+            "repair",
+            new StatusEffectInstance(ModEffects.REPAIR, 1800, 1)
+    );
+
+    public static final Potion REVIVAL_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.REVIVAL, 3600, 0)
+    );
+    public static final Potion LONG_REVIVAL_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.REVIVAL, 9600, 0)
+    );
+    public static final Potion STRONG_REVIVAL_POTION = new Potion(
+            "revival",
+            new StatusEffectInstance(ModEffects.REVIVAL, 1800, 1)
+    );
+
     /*
      * 负面效果
      */
@@ -293,6 +315,8 @@ public class ModPotions {
         registerCure(); // 净化 Cure
         registerDiamondSkin(); // 镶钻 Diamond Skin
         registerExtension(); //延长 Extension
+        registerRepair(); //修复 Repair
+        registerRevival(); //修复 Revival
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -424,6 +448,32 @@ public class ModPotions {
         // 注册增强版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "strong_extension"), STRONG_EXTENSION_POTION);
+    }
+
+    private static void registerRepair() {
+        // 修复 Repair
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "repair"), REPAIR_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_repair"), LONG_REPAIR_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_repair"), STRONG_REPAIR_POTION);
+    }
+
+    private static void registerRevival() {
+        //修复 Revival
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "revival"), REVIVAL_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_revival"), LONG_REVIVAL_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_revival"), STRONG_REVIVAL_POTION);
     }
 
     /*

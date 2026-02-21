@@ -38,5 +38,7 @@ Adds a whole lot of potion effects to the game.
  - 净化
  - 镶钻
  - 延长
+ - 修复
+ - 复活
 ##### 中立效果
  - 运气

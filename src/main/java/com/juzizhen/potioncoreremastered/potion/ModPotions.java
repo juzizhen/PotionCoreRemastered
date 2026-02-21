@@ -72,6 +72,28 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.CURE, 9600, 0)
     );
 
+    public static final Potion DIAMOND_SKIN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.DIAMOND_SKIN, 3600, 0)
+    );
+    public static final Potion LONG_DIAMOND_SKIN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.DIAMOND_SKIN, 9600, 0)
+    );
+    public static final Potion STRONG_DIAMOND_SKIN_POTION = new Potion(
+            "diamond_skin",
+            new StatusEffectInstance(ModEffects.DIAMOND_SKIN, 1800, 1)
+    );
+
+    public static final Potion EXTENSION_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.EXTENSION, 3600, 0)
+    );
+    public static final Potion LONG_EXTENSION_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.EXTENSION, 9600, 0)
+    );
+    public static final Potion STRONG_EXTENSION_POTION = new Potion(
+            "extension",
+            new StatusEffectInstance(ModEffects.EXTENSION, 1800, 1)
+    );
+
     /*
      * 负面效果
      */
@@ -269,6 +291,8 @@ public class ModPotions {
         registerBurst(); // 炸裂 Burst
         registerClimb(); // 攀爬 Climb
         registerCure(); // 净化 Cure
+        registerDiamondSkin(); // 镶钻 Diamond Skin
+        registerExtension(); //延长 Extension
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -374,6 +398,32 @@ public class ModPotions {
         // 注册延长版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "long_cure"), LONG_CURE_POTION);
+    }
+
+    private static void registerDiamondSkin() {
+        // 镶钻 Diamond Skin
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "diamond_skin"), DIAMOND_SKIN_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_diamond_skin"), LONG_DIAMOND_SKIN_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_diamond_skin"), STRONG_DIAMOND_SKIN_POTION);
+    }
+
+    private static void registerExtension() {
+        // 延长 Extension
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "extension"), EXTENSION_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_extension"), LONG_EXTENSION_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_extension"), STRONG_EXTENSION_POTION);
     }
 
     /*

@@ -36,6 +36,7 @@ Adds a whole lot of potion effects to the game.
  - 炸裂
  - 攀爬
  - 净化
- - 
+ - 镶钻
+ - 延长
 ##### 中立效果
  - 运气

@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class EffectClassifier {
     public static final Set<StatusEffect> GOOD_EFFECTS = new HashSet<>();
-    public static final Set<StatusEffect> BAD_EFFECTS = new HashSet<>();
+        public static final Set<StatusEffect> BAD_EFFECTS = new HashSet<>();
     public static final Map<StatusEffect, StatusEffect> OPPOSITE_EFFECTS = new HashMap<>();
 
     public static void initialize() {

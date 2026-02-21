@@ -8,7 +8,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModPotions {
-    // 正面效果
+    /*
+     * 正面效果
+     */
     public static final Potion SUSTAINED_SATURATION_POTION = new Potion(
             new StatusEffectInstance(ModEffects.SUSTAINED_SATURATION, 3600, 0)
     );
@@ -20,7 +22,59 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.SUSTAINED_SATURATION, 1800, 1)
     );
 
-    // 负面效果
+    public static final Potion ANTIDOTE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.ANTIDOTE, 3600, 0)
+    );
+    public static final Potion LONG_ANTIDOTE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.ANTIDOTE, 9600, 0)
+    );
+
+    public static final Potion IMPROVE_ACCURACY_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.IMPROVE_ACCURACY, 3600, 0)
+    );
+    public static final Potion LONG_IMPROVE_ACCURACY_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.IMPROVE_ACCURACY, 9600, 0)
+    );
+    public static final Potion STRONG_IMPROVE_ACCURACY_POTION = new Potion(
+            "improve_accuracy",
+            new StatusEffectInstance(ModEffects.IMPROVE_ACCURACY, 1800, 1)
+    );
+
+    public static final Potion BLESS_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.BLESS, 3600, 0)
+    );
+    public static final Potion LONG_BLESS_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.BLESS, 9600, 0)
+    );
+
+    public static final Potion BURST_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.BURST, 3600, 0)
+    );
+    public static final Potion LONG_BURST_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.BURST, 9600, 0)
+    );
+    public static final Potion STRONG_BURST_POTION = new Potion(
+            "burst",
+            new StatusEffectInstance(ModEffects.BURST, 1800, 1)
+    );
+
+    public static final Potion CLIMB_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CLIMB, 3600, 0)
+    );
+    public static final Potion LONG_CLIMB_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CLIMB, 9600, 0)
+    );
+
+    public static final Potion CURE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CURE, 3600, 0)
+    );
+    public static final Potion LONG_CURE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CURE, 9600, 0)
+    );
+
+    /*
+     * 负面效果
+     */
     public static final Potion BROKEN_ARMOR_POTION = new Potion(
             new StatusEffectInstance(ModEffects.BROKEN_ARMOR, 3600, 0)
     );
@@ -35,17 +89,29 @@ public class ModPotions {
     public static final Potion CURSE_POTION = new Potion(
             new StatusEffectInstance(ModEffects.CURSE, 3600, 0)
     );
+    public static final Potion LONG_CURSE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CURSE, 9600, 0)
+    );
 
     public static final Potion DISORGANIZATION_POTION = new Potion(
             new StatusEffectInstance(ModEffects.DISORGANIZATION, 3600, 0)
+    );
+    public static final Potion LONG_DISORGANIZATION_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.DISORGANIZATION, 9600, 0)
     );
 
     public static final Potion DISPEL_POTION = new Potion(
             new StatusEffectInstance(ModEffects.DISPEL, 3600, 0)
     );
+    public static final Potion LONG_DISPEL_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.DISPEL, 9600, 0)
+    );
 
     public static final Potion DROWN_POTION = new Potion(
             new StatusEffectInstance(ModEffects.DROWN, 3600, 0)
+    );
+    public static final Potion LONG_DROWN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.DROWN, 9600, 0)
     );
 
     public static final Potion EXPLODE_POTION = new Potion(
@@ -106,6 +172,9 @@ public class ModPotions {
     public static final Potion MIRROR_POTION = new Potion(
             new StatusEffectInstance(ModEffects.MIRROR, 3600, 0)
     );
+    public static final Potion LONG_MIRROR_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.MIRROR, 9600, 0)
+    );
 
     public static final Potion MAGIC_INHIBITION_POTION = new Potion(
             new StatusEffectInstance(ModEffects.MAGIC_INHIBITION, 3600, 0)
@@ -143,6 +212,9 @@ public class ModPotions {
     public static final Potion RANDOM_TELEPORT_POTION = new Potion(
             new StatusEffectInstance(ModEffects.RANDOM_TELEPORT, 3600, 0)
     );
+    public static final Potion LONG_RANDOM_TELEPORT_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.RANDOM_TELEPORT, 9600, 0)
+    );
 
     public static final Potion LIGHTNING_POTION = new Potion(
             new StatusEffectInstance(ModEffects.LIGHTNING, 3600, 0)
@@ -174,10 +246,29 @@ public class ModPotions {
     public static final Potion NO_FLIGHT_POTION = new Potion(
             new StatusEffectInstance(ModEffects.NO_FLIGHT, 3600, 0)
     );
+    public static final Potion LONG_NO_FLIGHT_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.NO_FLIGHT, 9600, 0)
+    );
+
+    /*
+     * 中立效果
+     */
+    public static final Potion CHANCE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CHANCE, 3600, 0)
+    );
+    public static final Potion LONG_CHANCE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.CHANCE, 9600, 0)
+    );
 
     public static void registerPotions() {
         // 正面效果
         registerSustainedSaturation(); // 持续饱和 Sustained Saturation
+        registerAntidote(); // 解毒 Antidote
+        registerImproveAccuracy(); // 提高精度 Improve Accuracy
+        registerBless(); // 祝福 Bless
+        registerBurst(); // 炸裂 Burst
+        registerClimb(); // 攀爬 Climb
+        registerCure(); // 净化 Cure
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -198,9 +289,14 @@ public class ModPotions {
         registerLightning(); // 闪电 Lightning
         registerLaunch(); // 发射 Launch
         registerNoFlight(); // 禁空 No Flight
+
+        // 中立效果
+        registerChance(); // 运气 Chance
     }
 
-    // 正面效果
+    /*
+     * 正面效果
+     */
     private static void registerSustainedSaturation() {
         // 持续饱和 Sustained Saturation
         // 注册普通版
@@ -214,7 +310,75 @@ public class ModPotions {
                 new Identifier("potioncoreremastered", "strong_sustained_saturation"), STRONG_SUSTAINED_SATURATION_POTION);
     }
 
-    // 负面效果
+    private static void registerAntidote() {
+        // 解毒 Antidote
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "antidote"), ANTIDOTE_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_antidote"), LONG_ANTIDOTE_POTION);
+    }
+
+    private static void registerImproveAccuracy() {
+        // 提高精度 Improve Accuracy
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "improve_accuracy"), IMPROVE_ACCURACY_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_improve_accuracy"), LONG_IMPROVE_ACCURACY_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_improve_accuracy"), STRONG_IMPROVE_ACCURACY_POTION);
+    }
+
+    private static void registerBless() {
+        // 祝福 Bless
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "bless"), BLESS_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_bless"), LONG_BLESS_POTION);
+    }
+
+    private static void registerBurst() {
+        // 炸裂 Burst
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "burst"), BURST_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_burst"), LONG_BURST_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_burst"), STRONG_BURST_POTION);
+    }
+
+    private static void registerClimb() {
+        // 攀爬 Climb
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "climb"), CLIMB_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_climb"), LONG_CLIMB_POTION);
+    }
+
+    private static void registerCure() {
+        // 净化 Cure
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "cure"), CURE_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_cure"), LONG_CURE_POTION);
+    }
+
+    /*
+     * 负面效果
+     */
     private static void registerBrokenArmor() {
         // 护甲减效 Broken Armor
         // 注册普通版
@@ -233,6 +397,9 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "curse"), CURSE_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_curse"), LONG_CURSE_POTION);
     }
 
     private static void registerDisorganization() {
@@ -240,6 +407,9 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "disorganization"), DISORGANIZATION_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_disorganization"), LONG_DISORGANIZATION_POTION);
     }
 
     private static void registerDispel() {
@@ -247,6 +417,9 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "dispel"), DISPEL_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_dispel"), LONG_DISPEL_POTION);
     }
 
     private static void registerDrown() {
@@ -254,6 +427,9 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "drown"), DROWN_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_drown"), LONG_DROWN_POTION);
     }
 
     private static void registerExplode() {
@@ -326,6 +502,9 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "mirror"), MIRROR_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_mirror"), LONG_MIRROR_POTION);
     }
 
     private static void registerMagicInhibition() {
@@ -372,6 +551,9 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "random_teleport"), RANDOM_TELEPORT_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_random_teleport"), LONG_RANDOM_TELEPORT_POTION);
     }
 
     private static void registerLightning() {
@@ -411,5 +593,21 @@ public class ModPotions {
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "no_flight"), NO_FLIGHT_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_no_flight"), LONG_NO_FLIGHT_POTION);
+    }
+
+    /*
+     * 中立效果
+     */
+    private static void registerChance() {
+        // 运气 Chance
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "chance"), CHANCE_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_chance"), LONG_CHANCE_POTION);
     }
 }

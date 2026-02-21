@@ -6,7 +6,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -41,8 +43,12 @@ public abstract class LivingEntityMixin {
             if (owner instanceof LivingEntity living) {
                 if (living.hasStatusEffect(ModEffects.LOSS_ACCURACY)) {
                     int level = Objects.requireNonNull(living.getStatusEffect(ModEffects.LOSS_ACCURACY)).getAmplifier() + 1;
-                    float reduction = level * 4.0f;
-                    amount = Math.max(0, amount - reduction);
+                    amount -= level * 4.0f;
+                }
+
+                if (living.hasStatusEffect(ModEffects.IMPROVE_ACCURACY)) {
+                    int level = Objects.requireNonNull(living.getStatusEffect(ModEffects.IMPROVE_ACCURACY)).getAmplifier() + 1;
+                    amount += level * 3.0f;
                 }
             }
         }
@@ -52,8 +58,13 @@ public abstract class LivingEntityMixin {
             amount *= (1.0F + 0.5F * level);
         }
 
+        if (amount < 0.0F) {
+            amount = 0.0F;
+        }
+
         return amount;
     }
+
 
     @Inject(method = "addStatusEffect*", at = @At("HEAD"), cancellable = true)
     private void weakenNewBuff(StatusEffectInstance original, CallbackInfoReturnable<Boolean> cir) {
@@ -102,6 +113,17 @@ public abstract class LivingEntityMixin {
             self.setVelocity(self.getVelocity().x,
                     self.getVelocity().y * reduction,
                     self.getVelocity().z);
+        }
+    }
+
+    @Inject(method = "addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z", at = @At("HEAD"), cancellable = true)
+    private void onAddStatusEffect(StatusEffectInstance effect, @Nullable Entity source, CallbackInfoReturnable<Boolean> cir) {
+        if (effect.getEffectType() == StatusEffects.POISON) {
+            LivingEntity self = (LivingEntity)(Object)this;
+            if (self.hasStatusEffect(ModEffects.ANTIDOTE)) {
+                cir.setReturnValue(false);
+                cir.cancel();
+            }
         }
     }
 }

@@ -29,4 +29,13 @@ Adds a whole lot of potion effects to the game.
  - 药水病
  - 禁空
 ##### 正面效果
+ - 持续饱和
+ - 解毒
+ - 提高精度
+ - 祝福
+ - 炸裂
+ - 攀爬
+ - 净化
  - 
+##### 中立效果
+ - 运气

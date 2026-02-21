@@ -7,7 +7,12 @@ import net.minecraft.util.Identifier;
 
 public class ModEffects {
     // 正面效果
-    public static StatusEffect SUSTAINED_SATURATION = new EffectSustainedSaturation();
+    public static final StatusEffect SUSTAINED_SATURATION = new EffectSustainedSaturation();
+    public static final StatusEffect ANTIDOTE = new EffectAntidote();
+    public static final StatusEffect IMPROVE_ACCURACY = new EffectImproveAccuracy();
+    public static final StatusEffect BLESS = new EffectBless();
+    public static final StatusEffect CLIMB = new EffectClimb();
+    public static final StatusEffect CURE = new EffectCure();
 
     // 负面效果
     public static final StatusEffect BROKEN_ARMOR = new EffectBrokenArmor();
@@ -29,14 +34,40 @@ public class ModEffects {
     public static final StatusEffect LAUNCH = new EffectLaunch();
     public static final StatusEffect POTION_SICKNESS = new EffectPotionSickness();
     public static final StatusEffect NO_FLIGHT = new EffectNoFlight();
+    public static final StatusEffect BURST = new EffectBurst();
+
+    //中立效果
+    public static final StatusEffect CHANCE = new EffectChance();
 
 
     public static void registerEffects() {
-        // 正面效果
+        /*
+         * 正面效果
+         */
         Registry.register( Registries.STATUS_EFFECT,
                 new Identifier("potioncoreremastered", "sustained_saturation"), SUSTAINED_SATURATION);
 
-        // 负面效果
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "antidote"), ANTIDOTE);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "improve_accuracy"), IMPROVE_ACCURACY);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "bless"), BLESS);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "burst"), BURST);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "climb"), CLIMB);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "cure"), CURE);
+
+        /*
+         * 负面效果
+         */
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier("potioncoreremastered", "broken_armor"), BROKEN_ARMOR);
 
@@ -93,5 +124,11 @@ public class ModEffects {
 
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier("potioncoreremastered", "no_flight"), NO_FLIGHT);
+
+        /*
+         * 中立效果
+         */
+        Registry.register( Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "chance"), CHANCE);
     }
 }

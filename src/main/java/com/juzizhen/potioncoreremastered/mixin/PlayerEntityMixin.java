@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Random;
 
 @Mixin(PlayerEntity.class)
-abstract class ClientPlayerEntitySpinMixin {
+abstract class PlayerEntityMixin {
     @Unique
     private static final Random RANDOM = new Random();
 

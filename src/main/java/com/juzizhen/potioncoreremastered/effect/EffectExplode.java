@@ -31,6 +31,7 @@ public class EffectExplode extends StatusEffect {
                 false,                  // 是否产生火焰
                 World.ExplosionSourceType.MOB
         );
+        entity.damage(world.getDamageSources().explosion(entity, null), strength * 2.0F);
     }
 
     @Override

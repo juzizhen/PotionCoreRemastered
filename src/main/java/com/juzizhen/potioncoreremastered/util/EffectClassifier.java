@@ -35,4 +35,13 @@ public class EffectClassifier {
     public static boolean isHarmful(StatusEffect effect) {
         return BAD_EFFECTS.contains(effect);
     }
+
+    public static int safeParseInt(String value, int defaultValue) {
+        if (value == null) return defaultValue;
+        try {
+            return Integer.parseInt(value.trim());
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
 }

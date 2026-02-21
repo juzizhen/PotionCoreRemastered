@@ -2,19 +2,29 @@ package com.juzizhen.potioncoreremastered.mixin;
 
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
-import net.minecraft.entity.Entity;
-
-/**
- * 修改视角变化：反转鼠标移动（抬头↔低头，左转头↔右转头）
- * 使用 @ModifyVariable 修改方法参数，argsOnly = true 表示修改参数变量
- */
 @Mixin(Entity.class)
-public abstract class EntityCameraMixin {
+abstract class EntityMixin {
+
+    @Redirect(method = "changeLookDirection(DD)V", at = @At( value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(FFF)F"))
+    private float redirectClamp(float value, float min, float max) {
+        Entity self = (Entity)(Object)this;
+        if (self instanceof PlayerEntity player) {
+            StatusEffectInstance effect = player.getStatusEffect(ModEffects.SPIN);
+            if (effect != null) {
+                return value;
+            }
+        }
+        return MathHelper.clamp(value, min, max);
+    }
 
     @ModifyVariable(method = "changeLookDirection", at = @At("HEAD"), argsOnly = true, ordinal = 0)
     private double modifyLookDirectionX(double cursorDeltaX) {
@@ -34,3 +44,4 @@ public abstract class EntityCameraMixin {
         return cursorDeltaY;
     }
 }
+

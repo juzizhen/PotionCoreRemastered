@@ -3,7 +3,8 @@
   "package": "com.juzizhen.potioncoreremastered.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "EntityCameraMixin",
+    "ClientPlayerEntitySpinMixin",
+    "EntityMixin",
     "LivingEntityMixin"
   ],
   "client": [

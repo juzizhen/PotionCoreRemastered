@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 
 public class EffectRust extends StatusEffect {
     public EffectRust() {
-        super(StatusEffectCategory.HARMFUL, 0x8B4513); // 棕色
+        super(StatusEffectCategory.HARMFUL, 0x8B4513);
     }
 
     @Override

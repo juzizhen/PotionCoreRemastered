@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.juzizhen.potioncoreremastered.PotionCoreRemastered"
+		],
+		"modmenu": [
+			"com.juzizhen.potioncoreremastered.config.ModMenuCompat"
 		]
 	},
 	"mixins": [
@@ -27,5 +30,8 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": ">=7.2.2"
 	}
 }

@@ -17,7 +17,7 @@ public class EffectRepair extends StatusEffect {
     private static final int REPAIR_INTERVAL = 100;
 
     public EffectRepair() {
-        super(StatusEffectCategory.BENEFICIAL, 7829367); // 绿色
+        super(StatusEffectCategory.BENEFICIAL, 7829367);
     }
 
     @Override

@@ -2,9 +2,9 @@ package com.juzizhen.potioncoreremastered.mixin;
 
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,9 +16,12 @@ import java.util.Objects;
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin {
 
+    /*
+     * 复活 REVIVAL
+     */
     @Inject(method = "onDeath", at = @At("HEAD"), cancellable = true)
     private void onDeathRevival(DamageSource source, CallbackInfo ci) {
-        ServerPlayerEntity player = (ServerPlayerEntity)(Object)this;
+        ServerPlayerEntity player = (ServerPlayerEntity) (Object) this;
 
         if (player.hasStatusEffect(ModEffects.REVIVAL)) {
             int amplifier = Objects.requireNonNull(player.getStatusEffect(ModEffects.REVIVAL)).getAmplifier();

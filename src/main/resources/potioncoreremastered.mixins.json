@@ -6,15 +6,28 @@
     "EntityMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
+    "ReachMixin$ChestStateManagerMixin",
+    "ReachMixin$ForgingScreenHandlerMixin",
+    "ReachMixin$InventoryValidationMixin",
+    "ReachMixin$ItemMixin",
+    "ReachMixin$LivingEntityMixin",
+    "ReachMixin$PlayerEntityInteractionHandlerMixin",
+    "ReachMixin$PlayerEntityMixin",
+    "ReachMixin$ScreenHandlerMixin",
+    "ReachMixin$ServerPlayerInteractionManagerMixin",
+    "ReachMixin$ServerPlayNetworkHandlerMixin",
+    "ReachMixin$VehicleInventoryValidationMixin",
     "ServerPlayerEntityMixin"
   ],
   "client": [
-    "KeyboardInputMixin"
+    "KeyboardInputMixin",
+    "ReachMixin$ClientPlayerInteractionManagerMixin",
+    "ReachMixin$GameRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-	}
+  }
 }

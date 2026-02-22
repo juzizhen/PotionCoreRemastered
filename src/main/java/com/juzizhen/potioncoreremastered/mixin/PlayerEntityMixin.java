@@ -12,10 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Random;
 
 @Mixin(PlayerEntity.class)
-abstract class PlayerEntityMixin {
+public abstract class PlayerEntityMixin {
     @Unique
     private static final Random RANDOM = new Random();
 
+    /*
+     * 头晕 SPIN
+     */
     @Inject(method = "tickMovement", at = @At("TAIL"))
     private void onTickMovementTail(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;

@@ -1,8 +1,9 @@
 # PotionCoreRemastered
 Adds a whole lot of potion effects to the game.
 
-- 部分灵感和部分贴图来源于PotionCore但没有使用其开源的代码
-- 我在PotionCore的基础上有改进
+- 部分灵感和部分贴图来源于PotionCore但没有使用其开源的代码。
+- 我在PotionCore的基础上有改进。
+- 这个模组是提供给整合包作者的，所以不自带合成（酿造）配方，需要的可以使用Kubejs自定义配方。
 
 ## 已完成效果
 
@@ -40,5 +41,17 @@ Adds a whole lot of potion effects to the game.
  - 延长
  - 修复
  - 复活
+ - 高踏
+ - 凋零抗性
+ - 稳固
+ - 魔力聚焦（未完成）
+ - 飞行
+ - 爱情
+ - 地面传送
+ - 延伸
+ - 铁皮
+ - 
+
+ - 大胃王（暂定）
 ##### 中立效果
  - 运气

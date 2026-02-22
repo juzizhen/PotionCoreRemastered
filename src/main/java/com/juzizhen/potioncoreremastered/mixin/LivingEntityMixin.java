@@ -26,6 +26,9 @@ public abstract class LivingEntityMixin {
     @Shadow
     public abstract boolean hasStatusEffect(StatusEffect effect);
 
+    /*
+     * 溺水 DROWN
+     */
     @Redirect(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setAir(I)V"))
     private void redirectSetAir(LivingEntity self, int air) {
         if (!(self.hasStatusEffect(ModEffects.DROWN))) {
@@ -33,6 +36,11 @@ public abstract class LivingEntityMixin {
         }
     }
 
+    /*
+     * 失去精度 LOSS_ACCURACY
+     * 提高精度 IMPROVE_ACCURACY
+     * 脆弱 VULNERABLE
+     */
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true, ordinal = 0)
     private float modifyDamage(float amount, DamageSource source) {
         LivingEntity self = (LivingEntity) (Object) this;
@@ -66,6 +74,9 @@ public abstract class LivingEntityMixin {
     }
 
 
+    /*
+     * 魔法抑制 MAGIC_INHIBITION
+     */
     @Inject(method = "addStatusEffect*", at = @At("HEAD"), cancellable = true)
     private void weakenNewBuff(StatusEffectInstance original, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
@@ -104,6 +115,9 @@ public abstract class LivingEntityMixin {
         }
     }
 
+    /*
+     * 沉重 WEIGHT
+     */
     @Inject(method = "jump", at = @At("TAIL"))
     private void modifyJump(CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
@@ -116,11 +130,23 @@ public abstract class LivingEntityMixin {
         }
     }
 
+    /*
+     * 解毒 ANTIDOTE
+     * 凋零抗性 PURITY
+     */
     @Inject(method = "addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z", at = @At("HEAD"), cancellable = true)
     private void onAddStatusEffect(StatusEffectInstance effect, @Nullable Entity source, CallbackInfoReturnable<Boolean> cir) {
         if (effect.getEffectType() == StatusEffects.POISON) {
             LivingEntity self = (LivingEntity)(Object)this;
             if (self.hasStatusEffect(ModEffects.ANTIDOTE)) {
+                cir.setReturnValue(false);
+                cir.cancel();
+            }
+        }
+
+        if (effect.getEffectType() == StatusEffects.WITHER) {
+            LivingEntity self = (LivingEntity)(Object)this;
+            if (self.hasStatusEffect(ModEffects.PURITY)) {
                 cir.setReturnValue(false);
                 cir.cancel();
             }

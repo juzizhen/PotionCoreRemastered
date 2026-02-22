@@ -116,6 +116,79 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.REVIVAL, 1800, 1)
     );
 
+    public static final Potion STEP_UP_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.STEP_UP, 3600, 0)
+    );
+    public static final Potion LONG_STEP_UP_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.STEP_UP, 9600, 0)
+    );
+    public static final Potion STRONG_STEP_UP_POTION = new Potion(
+            "step_up",
+            new StatusEffectInstance(ModEffects.STEP_UP, 1800, 1)
+    );
+
+    public static final Potion TELEPORT_SPAWN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.TELEPORT_SPAWN, 3600, 0)
+    );
+    public static final Potion LONG_TELEPORT_SPAWN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.TELEPORT_SPAWN, 9600, 0)
+    );
+
+    public static final Potion PURITY_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.PURITY, 3600, 0)
+    );
+    public static final Potion LONG_PURITY_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.PURITY, 9600, 0)
+    );
+
+    public static final Potion SOLID_CORE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.SOLID_CORE, 3600, 0)
+    );
+    public static final Potion LONG_SOLID_CORE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.SOLID_CORE, 9600, 0)
+    );
+    public static final Potion STRONG_SOLID_CORE_POTION = new Potion(
+            "solid_core",
+            new StatusEffectInstance(ModEffects.SOLID_CORE, 1800, 1)
+    );
+
+    public static final Potion FLIGHT_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.FLIGHT, 3600, 0)
+    );
+    public static final Potion LONG_FLIGHT_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.FLIGHT, 9600, 0)
+    );
+
+    public static final Potion LOVE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.LOVE, 1, 0)
+    );
+
+    public static final Potion TELEPORT_SURFACE_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.TELEPORT_SURFACE, 1, 0)
+    );
+
+    public static final Potion REACH_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.REACH, 3600, 0)
+    );
+    public static final Potion LONG_REACH_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.REACH, 9600, 0)
+    );
+    public static final Potion STRONG_REACH_POTION = new Potion(
+            "reach",
+            new StatusEffectInstance(ModEffects.REACH, 1800, 1)
+    );
+
+    public static final Potion IRON_SKIN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.IRON_SKIN, 3600, 0)
+    );
+    public static final Potion LONG_IRON_SKIN_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.IRON_SKIN, 9600, 0)
+    );
+    public static final Potion STRONG_IRON_SKIN_POTION = new Potion(
+            "iron_skin",
+            new StatusEffectInstance(ModEffects.IRON_SKIN, 1800, 1)
+    );
+
     /*
      * 负面效果
      */
@@ -315,8 +388,17 @@ public class ModPotions {
         registerCure(); // 净化 Cure
         registerDiamondSkin(); // 镶钻 Diamond Skin
         registerExtension(); //延长 Extension
-        registerRepair(); //修复 Repair
-        registerRevival(); //修复 Revival
+        registerRepair(); // 修复 Repair
+        registerRevival(); // 复活 Revival
+        registerStepUp(); // 高踏 Step Up
+        registerTeleportSpawn(); // 回家 Teleport Spawn
+        registerPurity(); // 凋零抗性 Purity
+        registerSolidCore(); // 稳固 Solid Core
+        registerFlight(); // 飞行 Flight
+        registerLove(); // 爱情 Love
+        registerTeleportSurface(); // 地面传送 Teleport Surface
+        registerReach(); // 延伸 Reach
+        registerIronSkin(); // 铁皮 Iron Skin
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -464,7 +546,7 @@ public class ModPotions {
     }
 
     private static void registerRevival() {
-        //修复 Revival
+        // 复活 Revival
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "revival"), REVIVAL_POTION);
@@ -474,6 +556,102 @@ public class ModPotions {
         // 注册增强版
         Registry.register(Registries.POTION,
                 new Identifier("potioncoreremastered", "strong_revival"), STRONG_REVIVAL_POTION);
+    }
+
+    private static void registerStepUp() {
+        // 高踏 Step Up
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "step_up"), STEP_UP_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_step_up"), LONG_STEP_UP_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_step_up"), STRONG_STEP_UP_POTION);
+    }
+
+    private static void registerTeleportSpawn() {
+        // 回家 Teleport Spawn
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "teleport_spawn"), TELEPORT_SPAWN_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_teleport_spawn"), LONG_TELEPORT_SPAWN_POTION);
+    }
+
+    private static void registerPurity() {
+        // 凋零抗性 Purity
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "purity"), PURITY_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_purity"), LONG_PURITY_POTION);
+    }
+
+    private static void registerSolidCore() {
+        // 稳固 Solid Core
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "solid_core"), SOLID_CORE_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_solid_core"), LONG_SOLID_CORE_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_solid_core"), STRONG_SOLID_CORE_POTION);
+    }
+
+    private static void registerFlight() {
+        // 飞行 Flight
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "flight"), FLIGHT_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_flight"), LONG_FLIGHT_POTION);
+    }
+
+    private static void registerLove() {
+        // 爱情 Love
+        // 注册 Love I
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "love"), LOVE_POTION);
+    }
+
+    private static void registerTeleportSurface() {
+        // 地面传送 Teleport Surface
+        // 注册 Teleport Surface I
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "teleport_surface"), TELEPORT_SURFACE_POTION);
+    }
+
+    private static void registerReach() {
+        // 延伸 Reach
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "reach"), REACH_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_reach"), LONG_REACH_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_reach"), STRONG_REACH_POTION);
+    }
+
+    private static void registerIronSkin() {
+        // 铁皮 Iron Skin
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "iron_skin"), IRON_SKIN_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "long_iron_skin"), LONG_IRON_SKIN_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier("potioncoreremastered", "strong_iron_skin"), STRONG_IRON_SKIN_POTION);
     }
 
     /*

@@ -17,6 +17,15 @@ public class ModEffects {
     public static final StatusEffect EXTENSION = new EffectExtension();
     public static final StatusEffect REPAIR = new EffectRepair();
     public static final StatusEffect REVIVAL = new EffectRevival();
+    public static final StatusEffect STEP_UP = new EffectStepUp();
+    public static final StatusEffect TELEPORT_SPAWN = new EffectTeleportSpawn();
+    public static final StatusEffect PURITY = new EffectPurity();
+    public static final StatusEffect SOLID_CORE = new EffectSolidCore();
+    public static final StatusEffect FLIGHT = new EffectFlight();
+    public static final StatusEffect LOVE = new EffectLove();
+    public static final StatusEffect TELEPORT_SURFACE = new EffectTeleportSurface();
+    public static final StatusEffect REACH = new EffectReach();
+    public static final StatusEffect IRON_SKIN = new EffectIronSkin();
 
     // 负面效果
     public static final StatusEffect BROKEN_ARMOR = new EffectBrokenArmor();
@@ -80,6 +89,33 @@ public class ModEffects {
 
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier("potioncoreremastered", "revival"), REVIVAL);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "step_up"), STEP_UP);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "teleport_spawn"), TELEPORT_SPAWN);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "purity"), PURITY);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "solid_core"), SOLID_CORE);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "flight"), FLIGHT);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "love"), LOVE);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "teleport_surface"), TELEPORT_SURFACE);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "reach"), REACH);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier("potioncoreremastered", "iron_skin"), IRON_SKIN);
 
         /*
          * 负面效果

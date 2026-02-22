@@ -14,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(Entity.class)
 abstract class EntityMixin {
 
+    /*
+     * 头晕 SPIN
+     */
     @Redirect(method = "changeLookDirection(DD)V", at = @At( value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(FFF)F"))
     private float redirectClamp(float value, float min, float max) {
         Entity self = (Entity)(Object)this;
@@ -26,6 +29,9 @@ abstract class EntityMixin {
         return MathHelper.clamp(value, min, max);
     }
 
+    /*
+     * 镜像 MIRROR
+     */
     @ModifyVariable(method = "changeLookDirection", at = @At("HEAD"), argsOnly = true, ordinal = 0)
     private double modifyLookDirectionX(double cursorDeltaX) {
         PlayerEntity self = MinecraftClient.getInstance().player;

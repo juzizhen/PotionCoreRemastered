@@ -16,6 +16,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  */
 @Mixin(KeyboardInput.class)
 public abstract class KeyboardInputMixin extends Input {
+
+    /*
+     * 镜像 MIRROR
+     */
     @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(boolean slowDown, float f, CallbackInfo ci) {
         PlayerEntity self = MinecraftClient.getInstance().player;

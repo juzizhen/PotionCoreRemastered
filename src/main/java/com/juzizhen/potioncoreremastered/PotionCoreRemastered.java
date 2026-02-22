@@ -1,5 +1,6 @@
 package com.juzizhen.potioncoreremastered;
 
+import com.juzizhen.potioncoreremastered.attribute.ModAttribute;
 import com.juzizhen.potioncoreremastered.config.ModConfig;
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
 import com.juzizhen.potioncoreremastered.potion.ModPotions;
@@ -18,6 +19,8 @@ public class PotionCoreRemastered implements ModInitializer {
 	public void onInitialize() {
 		AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);
 		CONFIG = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+
+		ModAttribute.registerAttribute();
 
 		ModEffects.registerEffects();
 		ModPotions.registerPotions();

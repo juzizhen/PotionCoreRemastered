@@ -21,7 +21,7 @@ Adds a whole lot of potion effects to the game.
  - 腐蚀
  - 镜像
  - 魔力抑制（未完成）
- - 魔法破防（未完成）
+ - 破魔（未完成）
  - 晕头转向 
  - 沉重
  - 随机传送
@@ -50,8 +50,11 @@ Adds a whole lot of potion effects to the game.
  - 地面传送
  - 延伸
  - 铁皮
- - 
+ - 魔抗
+ - 反伤
 
  - 大胃王（暂定）
+ - 扭曲（暂定）
+ - 强化吸收（暂定）
 ##### 中立效果
  - 运气

@@ -7,7 +7,13 @@
   "text.autoconfig.potioncoreremastered.option.PotionSicknessThreshold": "正面效果阈值",
   "text.autoconfig.potioncoreremastered.option.PotionSicknessThreshold.@Tooltip": "身上正面 buff 效果大于等于这个数的时候 ，会获得药水病，每溢出一个正面 buff ，药水病等级 + 1。",
 
-  "effect.potioncoreremastered.sustained_saturation": "持续饱和",
+  "attribute.name.generic.potioncoreremastered.reach": "交互距离",
+  "attribute.name.generic.potioncoreremastered.attack_range": "攻击距离",
+
+  "death.attack.counterattack": "%1$s 死于反伤",
+  "death.attack.counterattack.player": "%1$s 死于 %2$s 的反伤",
+
+"effect.potioncoreremastered.sustained_saturation": "持续饱和",
   "item.minecraft.potion.effect.sustained_saturation": "持续饱和药水",
   "item.minecraft.potion.effect.long_sustained_saturation": "持续饱和药水",
   "item.minecraft.potion.effect.strong_sustained_saturation": "持续饱和药水",
@@ -242,6 +248,20 @@
   "item.minecraft.tipped_arrow.effect.long_iron_skin": "铁皮之箭",
   "item.minecraft.tipped_arrow.effect.strong_iron_skin": "铁皮之箭",
   "item.minecraft.tipped_arrow.effect.iron_skin": "铁皮之箭",
+
+  "effect.potioncoreremastered.counterattack": "反伤",
+  "item.minecraft.potion.effect.counterattack": "反伤药水",
+  "item.minecraft.potion.effect.long_counterattack": "反伤药水",
+  "item.minecraft.potion.effect.strong_counterattack": "反伤药水",
+  "item.minecraft.splash_potion.effect.counterattack": "喷溅型反伤药水",
+  "item.minecraft.splash_potion.effect.strong_counterattack": "喷溅型反伤药水",
+  "item.minecraft.splash_potion.effect.long_counterattack": "喷溅型反伤药水",
+  "item.minecraft.lingering_potion.effect.long_counterattack": "滞留型反伤药水",
+  "item.minecraft.lingering_potion.effect.strong_counterattack": "滞留型反伤药水",
+  "item.minecraft.lingering_potion.effect.counterattack": "滞留型反伤药水",
+  "item.minecraft.tipped_arrow.effect.long_counterattack": "反伤之箭",
+  "item.minecraft.tipped_arrow.effect.strong_counterattack": "反伤之箭",
+  "item.minecraft.tipped_arrow.effect.counterattack": "反伤之箭",
 
   "effect.potioncoreremastered.broken_armor": "护甲减效",
   "item.minecraft.potion.effect.broken_armor": "护甲减效药水",

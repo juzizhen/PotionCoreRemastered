@@ -15,6 +15,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 public class PotionCoreRemastered implements ModInitializer {
 	public static ModConfig CONFIG;
+	public static String MOD_ID = "potioncoreremastered";
 
 	public void onInitialize() {
 		AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);

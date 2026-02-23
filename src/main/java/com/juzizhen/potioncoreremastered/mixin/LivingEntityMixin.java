@@ -1,5 +1,6 @@
 package com.juzizhen.potioncoreremastered.mixin;
 
+import com.juzizhen.potioncoreremastered.damagetypes.ModDamageTypes;
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -8,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -73,6 +75,30 @@ public abstract class LivingEntityMixin {
         return amount;
     }
 
+    /*
+     * 反伤 COUNTERATTACK
+     */
+    @Inject(method = "damage", at = @At("HEAD"))
+    private void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        World world = self.getWorld();
+        if (world.isClient) return;
+
+        if (source.isOf(ModDamageTypes.COUNTERATTACK)) {
+            return;
+        }
+
+        StatusEffectInstance counterattack = self.getStatusEffect(ModEffects.COUNTERATTACK);
+        if (counterattack == null) return;
+
+        Entity attacker = source.getAttacker();
+        if (!(attacker instanceof LivingEntity target)) return;
+
+        int amplifier = counterattack.getAmplifier();
+        float damage = amount * (amplifier + 1) * 0.25f;
+
+        target.damage(ModDamageTypes.counterattack(world, target, self), damage);
+    }
 
     /*
      * 魔法抑制 MAGIC_INHIBITION

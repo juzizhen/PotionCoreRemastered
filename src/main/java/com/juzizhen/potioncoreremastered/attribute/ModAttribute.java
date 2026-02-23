@@ -1,5 +1,6 @@
 package com.juzizhen.potioncoreremastered.attribute;
 
+import com.juzizhen.potioncoreremastered.PotionCoreRemastered;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
@@ -64,11 +65,11 @@ public class ModAttribute {
     }
 
     private static EntityAttribute make(final String name, final double base, final double min, final double max) {
-        return new ClampedEntityAttribute("attribute.name.generic." + "potioncoreremastered" + '.' + name, base, min, max).setTracked(true);
+        return new ClampedEntityAttribute("attribute.name.generic." + PotionCoreRemastered.MOD_ID + '.' + name, base, min, max).setTracked(true);
     }
 
     public static void registerAttribute() {
-        Registry.register(Registries.ATTRIBUTE, new Identifier("potioncoreremastered", "reach"), REACH);
-        Registry.register(Registries.ATTRIBUTE, new Identifier("potioncoreremastered", "attack_range"), ATTACK_RANGE);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(PotionCoreRemastered.MOD_ID, "reach"), REACH);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(PotionCoreRemastered.MOD_ID, "attack_range"), ATTACK_RANGE);
     }
 }

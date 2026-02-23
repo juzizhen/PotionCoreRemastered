@@ -1,5 +1,6 @@
 package com.juzizhen.potioncoreremastered.potion;
 
+import com.juzizhen.potioncoreremastered.PotionCoreRemastered;
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.potion.Potion;
@@ -187,6 +188,17 @@ public class ModPotions {
     public static final Potion STRONG_IRON_SKIN_POTION = new Potion(
             "iron_skin",
             new StatusEffectInstance(ModEffects.IRON_SKIN, 1800, 1)
+    );
+
+    public static final Potion COUNTERATTACK_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.COUNTERATTACK, 3600, 0)
+    );
+    public static final Potion LONG_COUNTERATTACK_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.COUNTERATTACK, 9600, 0)
+    );
+    public static final Potion STRONG_COUNTERATTACK_POTION = new Potion(
+            "counterattack",
+            new StatusEffectInstance(ModEffects.COUNTERATTACK, 1800, 1)
     );
 
     /*
@@ -399,6 +411,7 @@ public class ModPotions {
         registerTeleportSurface(); // 地面传送 Teleport Surface
         registerReach(); // 延伸 Reach
         registerIronSkin(); // 铁皮 Iron Skin
+        registerCounterattack(); // 反伤 Counterattack
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -431,227 +444,240 @@ public class ModPotions {
         // 持续饱和 Sustained Saturation
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "sustained_saturation"), SUSTAINED_SATURATION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "sustained_saturation"), SUSTAINED_SATURATION_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_sustained_saturation"), LONG_SUSTAINED_SATURATION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_sustained_saturation"), LONG_SUSTAINED_SATURATION_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_sustained_saturation"), STRONG_SUSTAINED_SATURATION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_sustained_saturation"), STRONG_SUSTAINED_SATURATION_POTION);
     }
 
     private static void registerAntidote() {
         // 解毒 Antidote
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "antidote"), ANTIDOTE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "antidote"), ANTIDOTE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_antidote"), LONG_ANTIDOTE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_antidote"), LONG_ANTIDOTE_POTION);
     }
 
     private static void registerImproveAccuracy() {
         // 提高精度 Improve Accuracy
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "improve_accuracy"), IMPROVE_ACCURACY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "improve_accuracy"), IMPROVE_ACCURACY_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_improve_accuracy"), LONG_IMPROVE_ACCURACY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_improve_accuracy"), LONG_IMPROVE_ACCURACY_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_improve_accuracy"), STRONG_IMPROVE_ACCURACY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_improve_accuracy"), STRONG_IMPROVE_ACCURACY_POTION);
     }
 
     private static void registerBless() {
         // 祝福 Bless
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "bless"), BLESS_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "bless"), BLESS_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_bless"), LONG_BLESS_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_bless"), LONG_BLESS_POTION);
     }
 
     private static void registerBurst() {
         // 炸裂 Burst
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "burst"), BURST_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "burst"), BURST_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_burst"), LONG_BURST_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_burst"), LONG_BURST_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_burst"), STRONG_BURST_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_burst"), STRONG_BURST_POTION);
     }
 
     private static void registerClimb() {
         // 攀爬 Climb
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "climb"), CLIMB_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "climb"), CLIMB_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_climb"), LONG_CLIMB_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_climb"), LONG_CLIMB_POTION);
     }
 
     private static void registerCure() {
         // 净化 Cure
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "cure"), CURE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "cure"), CURE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_cure"), LONG_CURE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_cure"), LONG_CURE_POTION);
     }
 
     private static void registerDiamondSkin() {
         // 镶钻 Diamond Skin
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "diamond_skin"), DIAMOND_SKIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "diamond_skin"), DIAMOND_SKIN_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_diamond_skin"), LONG_DIAMOND_SKIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_diamond_skin"), LONG_DIAMOND_SKIN_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_diamond_skin"), STRONG_DIAMOND_SKIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_diamond_skin"), STRONG_DIAMOND_SKIN_POTION);
     }
 
     private static void registerExtension() {
         // 延长 Extension
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "extension"), EXTENSION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "extension"), EXTENSION_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_extension"), LONG_EXTENSION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_extension"), LONG_EXTENSION_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_extension"), STRONG_EXTENSION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_extension"), STRONG_EXTENSION_POTION);
     }
 
     private static void registerRepair() {
         // 修复 Repair
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "repair"), REPAIR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "repair"), REPAIR_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_repair"), LONG_REPAIR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_repair"), LONG_REPAIR_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_repair"), STRONG_REPAIR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_repair"), STRONG_REPAIR_POTION);
     }
 
     private static void registerRevival() {
         // 复活 Revival
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "revival"), REVIVAL_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "revival"), REVIVAL_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_revival"), LONG_REVIVAL_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_revival"), LONG_REVIVAL_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_revival"), STRONG_REVIVAL_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_revival"), STRONG_REVIVAL_POTION);
     }
 
     private static void registerStepUp() {
         // 高踏 Step Up
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "step_up"), STEP_UP_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "step_up"), STEP_UP_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_step_up"), LONG_STEP_UP_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_step_up"), LONG_STEP_UP_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_step_up"), STRONG_STEP_UP_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_step_up"), STRONG_STEP_UP_POTION);
     }
 
     private static void registerTeleportSpawn() {
         // 回家 Teleport Spawn
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "teleport_spawn"), TELEPORT_SPAWN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "teleport_spawn"), TELEPORT_SPAWN_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_teleport_spawn"), LONG_TELEPORT_SPAWN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_teleport_spawn"), LONG_TELEPORT_SPAWN_POTION);
     }
 
     private static void registerPurity() {
         // 凋零抗性 Purity
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "purity"), PURITY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "purity"), PURITY_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_purity"), LONG_PURITY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_purity"), LONG_PURITY_POTION);
     }
 
     private static void registerSolidCore() {
         // 稳固 Solid Core
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "solid_core"), SOLID_CORE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "solid_core"), SOLID_CORE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_solid_core"), LONG_SOLID_CORE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_solid_core"), LONG_SOLID_CORE_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_solid_core"), STRONG_SOLID_CORE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_solid_core"), STRONG_SOLID_CORE_POTION);
     }
 
     private static void registerFlight() {
         // 飞行 Flight
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "flight"), FLIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "flight"), FLIGHT_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_flight"), LONG_FLIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_flight"), LONG_FLIGHT_POTION);
     }
 
     private static void registerLove() {
         // 爱情 Love
         // 注册 Love I
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "love"), LOVE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "love"), LOVE_POTION);
     }
 
     private static void registerTeleportSurface() {
         // 地面传送 Teleport Surface
         // 注册 Teleport Surface I
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "teleport_surface"), TELEPORT_SURFACE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "teleport_surface"), TELEPORT_SURFACE_POTION);
     }
 
     private static void registerReach() {
         // 延伸 Reach
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "reach"), REACH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "reach"), REACH_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_reach"), LONG_REACH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_reach"), LONG_REACH_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_reach"), STRONG_REACH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_reach"), STRONG_REACH_POTION);
     }
 
     private static void registerIronSkin() {
         // 铁皮 Iron Skin
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "iron_skin"), IRON_SKIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "iron_skin"), IRON_SKIN_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_iron_skin"), LONG_IRON_SKIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_iron_skin"), LONG_IRON_SKIN_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_iron_skin"), STRONG_IRON_SKIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_iron_skin"), STRONG_IRON_SKIN_POTION);
+    }
+
+    private static void registerCounterattack() {
+        // 反伤 Counterattack
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "counterattack"), COUNTERATTACK_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_counterattack"), LONG_COUNTERATTACK_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_counterattack"), STRONG_COUNTERATTACK_POTION);
     }
 
     /*
@@ -661,219 +687,219 @@ public class ModPotions {
         // 护甲减效 Broken Armor
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "broken_armor"), BROKEN_ARMOR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "broken_armor"), BROKEN_ARMOR_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_broken_armor"), LONG_BROKEN_ARMOR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_broken_armor"), LONG_BROKEN_ARMOR_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_broken_armor"), STRONG_BROKEN_ARMOR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_broken_armor"), STRONG_BROKEN_ARMOR_POTION);
     }
 
     private static void registerCurse() {
         // 诅咒 Curse
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "curse"), CURSE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "curse"), CURSE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_curse"), LONG_CURSE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_curse"), LONG_CURSE_POTION);
     }
 
     private static void registerDisorganization() {
         // 乱序 Disorganization
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "disorganization"), DISORGANIZATION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "disorganization"), DISORGANIZATION_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_disorganization"), LONG_DISORGANIZATION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_disorganization"), LONG_DISORGANIZATION_POTION);
     }
 
     private static void registerDispel() {
         // 驱散 Dispel
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "dispel"), DISPEL_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "dispel"), DISPEL_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_dispel"), LONG_DISPEL_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_dispel"), LONG_DISPEL_POTION);
     }
 
     private static void registerDrown() {
         // 溺水 Drown
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "drown"), DROWN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "drown"), DROWN_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_drown"), LONG_DROWN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_drown"), LONG_DROWN_POTION);
     }
 
     private static void registerExplode() {
         // 爆破 Explode
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "explode"), EXPLODE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "explode"), EXPLODE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_explode"), LONG_EXPLODE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_explode"), LONG_EXPLODE_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_explode"), STRONG_EXPLODE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_explode"), STRONG_EXPLODE_POTION);
     }
 
     private static void registerCombustion() {
         // 燃烧 Combustion
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "combustion"), COMBUSTION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "combustion"), COMBUSTION_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_combustion"), LONG_COMBUSTION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_combustion"), LONG_COMBUSTION_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_combustion"), STRONG_COMBUSTION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_combustion"), STRONG_COMBUSTION_POTION);
     }
 
     private static void registerLossAccuracy() {
         // 降低精度 Loss Accuracy
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "loss_accuracy"), LOSS_ACCURACY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "loss_accuracy"), LOSS_ACCURACY_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_loss_accuracy"), LONG_LOSS_ACCURACY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_loss_accuracy"), LONG_LOSS_ACCURACY_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_loss_accuracy"), STRONG_LOSS_ACCURACY_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_loss_accuracy"), STRONG_LOSS_ACCURACY_POTION);
     }
 
     private static void registerVulnerable() {
         // 脆弱 Vulnerable
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "vulnerable"), VULNERABLE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "vulnerable"), VULNERABLE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_vulnerable"), LONG_VULNERABLE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_vulnerable"), LONG_VULNERABLE_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_vulnerable"), STRONG_VULNERABLE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_vulnerable"), STRONG_VULNERABLE_POTION);
     }
 
     private static void registerRust() {
         // 腐蚀 Rust
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "rust"), RUST_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "rust"), RUST_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_rust"), LONG_RUST_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_rust"), LONG_RUST_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_rust"), STRONG_RUST_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_rust"), STRONG_RUST_POTION);
     }
 
     private static void registerMirror() {
         // 镜像 Mirror
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "mirror"), MIRROR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "mirror"), MIRROR_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_mirror"), LONG_MIRROR_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_mirror"), LONG_MIRROR_POTION);
     }
 
     private static void registerMagicInhibition() {
         // 魔力抑制 Magic Inhibition
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "magic_inhibition"), MAGIC_INHIBITION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_inhibition"), MAGIC_INHIBITION_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_magic_inhibition"), LONG_MAGIC_INHIBITION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_magic_inhibition"), LONG_MAGIC_INHIBITION_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_magic_inhibition"), STRONG_MAGIC_INHIBITION_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_magic_inhibition"), STRONG_MAGIC_INHIBITION_POTION);
     }
 
     private static void registerSpin() {
         // 头晕 Spin
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "spin"), SPIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "spin"), SPIN_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_spin"), LONG_SPIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_spin"), LONG_SPIN_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_spin"), STRONG_SPIN_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_spin"), STRONG_SPIN_POTION);
     }
 
     private static void registerWeight() {
         // 沉重 Weight
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "weight"), WEIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "weight"), WEIGHT_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_weight"), LONG_WEIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_weight"), LONG_WEIGHT_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_weight"), STRONG_WEIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_weight"), STRONG_WEIGHT_POTION);
     }
 
     private static void registerRandomTeleport() {
         // 随机传送 Random Teleport
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "random_teleport"), RANDOM_TELEPORT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "random_teleport"), RANDOM_TELEPORT_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_random_teleport"), LONG_RANDOM_TELEPORT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_random_teleport"), LONG_RANDOM_TELEPORT_POTION);
     }
 
     private static void registerLightning() {
         // 闪电 Lightning
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "lightning"), LIGHTNING_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "lightning"), LIGHTNING_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_lightning"), LONG_LIGHTNING_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_lightning"), LONG_LIGHTNING_POTION);
         // 注册增强版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_lightning"), STRONG_LIGHTNING_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_lightning"), STRONG_LIGHTNING_POTION);
     }
 
     private static void registerLaunch() {
         // 发射 Launch
         // 注册 Launch I
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "launch"), LAUNCH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "launch"), LAUNCH_POTION);
         // 注册 Launch II
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "strong_launch"), STRONG_LAUNCH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_launch"), STRONG_LAUNCH_POTION);
         // 注册 Launch III
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "super_strong_launch"), SUPER_STRONG_LAUNCH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "super_strong_launch"), SUPER_STRONG_LAUNCH_POTION);
         // 注册 Launch IV
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "plus_super_strong_launch"), PLUS_SUPER_STRONG_LAUNCH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "plus_super_strong_launch"), PLUS_SUPER_STRONG_LAUNCH_POTION);
         // 注册 Launch V
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "ultra_plus_super_strong_launch"), ULTRA_PLUS_SUPER_STRONG_LAUNCH_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "ultra_plus_super_strong_launch"), ULTRA_PLUS_SUPER_STRONG_LAUNCH_POTION);
     }
 
     private static void registerNoFlight() {
         // 禁空 No Flight
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "no_flight"), NO_FLIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "no_flight"), NO_FLIGHT_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_no_flight"), LONG_NO_FLIGHT_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_no_flight"), LONG_NO_FLIGHT_POTION);
     }
 
     /*
@@ -883,9 +909,9 @@ public class ModPotions {
         // 运气 Chance
         // 注册普通版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "chance"), CHANCE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "chance"), CHANCE_POTION);
         // 注册延长版
         Registry.register(Registries.POTION,
-                new Identifier("potioncoreremastered", "long_chance"), LONG_CHANCE_POTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_chance"), LONG_CHANCE_POTION);
     }
 }

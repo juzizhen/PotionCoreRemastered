@@ -7,6 +7,12 @@
   "text.autoconfig.potioncoreremastered.option.PotionSicknessThreshold": "Good Effects Threshold",
   "text.autoconfig.potioncoreremastered.option.PotionSicknessThreshold.@Tooltip": "When you have a positive buff effect greater than or equal to this number, you will gain Potion Disease. For each positive buff that overflows, the Potion Disease level increases by 1.",
 
+  "attribute.name.generic.potioncoreremastered.reach": "Reach",
+  "attribute.name.generic.potioncoreremastered.attack_range": "Attack Range",
+
+  "death.attack.counterattack": "%1$s was slain by counterattack",
+  "death.attack.counterattack.player": "%1$s was slain by %2$s's counterattack",
+
   "effect.potioncoreremastered.sustained_saturation": "Sustained Saturation",
   "item.minecraft.potion.effect.sustained_saturation": "Potion of Sustained Saturation",
   "item.minecraft.potion.effect.long_sustained_saturation": "Potion of Sustained Saturation",
@@ -242,6 +248,20 @@
   "item.minecraft.tipped_arrow.effect.long_iron_skin": "Arrow of Iron Skin",
   "item.minecraft.tipped_arrow.effect.strong_iron_skin": "Arrow of Iron Skin",
   "item.minecraft.tipped_arrow.effect.iron_skin": "Arrow of Iron Skin",
+
+  "effect.potioncoreremastered.counterattack": "Counterattack",
+  "item.minecraft.potion.effect.counterattack": "Potion of Counterattack",
+  "item.minecraft.potion.effect.long_counterattack": "Potion of Counterattack",
+  "item.minecraft.potion.effect.strong_counterattack": "Potion of Counterattack",
+  "item.minecraft.splash_potion.effect.counterattack": "Splash Potion of Counterattack",
+  "item.minecraft.splash_potion.effect.strong_counterattack": "Splash Potion of Counterattack",
+  "item.minecraft.splash_potion.effect.long_counterattack": "Splash Potion of Counterattack",
+  "item.minecraft.lingering_potion.effect.long_counterattack": "Lingering Potion of Counterattack",
+  "item.minecraft.lingering_potion.effect.strong_counterattack": "Lingering Potion of Counterattack",
+  "item.minecraft.lingering_potion.effect.counterattack": "Lingering Potion of Counterattack",
+  "item.minecraft.tipped_arrow.effect.long_counterattack": "Arrow of Counterattack",
+  "item.minecraft.tipped_arrow.effect.strong_counterattack": "Arrow of Counterattack",
+  "item.minecraft.tipped_arrow.effect.counterattack": "Arrow of Counterattack",
 
   "effect.potioncoreremastered.broken_armor": "Broken Armor",
   "item.minecraft.potion.effect.broken_armor": "Potion of Broken Armor",

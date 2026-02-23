@@ -1,5 +1,6 @@
 package com.juzizhen.potioncoreremastered.effect;
 
+import com.juzizhen.potioncoreremastered.PotionCoreRemastered;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -26,6 +27,7 @@ public class ModEffects {
     public static final StatusEffect TELEPORT_SURFACE = new EffectTeleportSurface();
     public static final StatusEffect REACH = new EffectReach();
     public static final StatusEffect IRON_SKIN = new EffectIronSkin();
+    public static final StatusEffect COUNTERATTACK = new EffectCounterattack();
 
     // 负面效果
     public static final StatusEffect BROKEN_ARMOR = new EffectBrokenArmor();
@@ -58,129 +60,132 @@ public class ModEffects {
          * 正面效果
          */
         Registry.register( Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "sustained_saturation"), SUSTAINED_SATURATION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "sustained_saturation"), SUSTAINED_SATURATION);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "antidote"), ANTIDOTE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "antidote"), ANTIDOTE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "improve_accuracy"), IMPROVE_ACCURACY);
+                new Identifier(PotionCoreRemastered.MOD_ID, "improve_accuracy"), IMPROVE_ACCURACY);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "bless"), BLESS);
+                new Identifier(PotionCoreRemastered.MOD_ID, "bless"), BLESS);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "burst"), BURST);
+                new Identifier(PotionCoreRemastered.MOD_ID, "burst"), BURST);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "climb"), CLIMB);
+                new Identifier(PotionCoreRemastered.MOD_ID, "climb"), CLIMB);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "cure"), CURE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "cure"), CURE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "diamond_skin"), DIAMOND_SKIN);
+                new Identifier(PotionCoreRemastered.MOD_ID, "diamond_skin"), DIAMOND_SKIN);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "extension"), EXTENSION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "extension"), EXTENSION);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "repair"), REPAIR);
+                new Identifier(PotionCoreRemastered.MOD_ID, "repair"), REPAIR);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "revival"), REVIVAL);
+                new Identifier(PotionCoreRemastered.MOD_ID, "revival"), REVIVAL);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "step_up"), STEP_UP);
+                new Identifier(PotionCoreRemastered.MOD_ID, "step_up"), STEP_UP);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "teleport_spawn"), TELEPORT_SPAWN);
+                new Identifier(PotionCoreRemastered.MOD_ID, "teleport_spawn"), TELEPORT_SPAWN);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "purity"), PURITY);
+                new Identifier(PotionCoreRemastered.MOD_ID, "purity"), PURITY);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "solid_core"), SOLID_CORE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "solid_core"), SOLID_CORE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "flight"), FLIGHT);
+                new Identifier(PotionCoreRemastered.MOD_ID, "flight"), FLIGHT);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "love"), LOVE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "love"), LOVE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "teleport_surface"), TELEPORT_SURFACE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "teleport_surface"), TELEPORT_SURFACE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "reach"), REACH);
+                new Identifier(PotionCoreRemastered.MOD_ID, "reach"), REACH);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "iron_skin"), IRON_SKIN);
+                new Identifier(PotionCoreRemastered.MOD_ID, "iron_skin"), IRON_SKIN);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "counterattack"), COUNTERATTACK);
 
         /*
          * 负面效果
          */
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "broken_armor"), BROKEN_ARMOR);
+                new Identifier(PotionCoreRemastered.MOD_ID, "broken_armor"), BROKEN_ARMOR);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "disorganization"), DISORGANIZATION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "disorganization"), DISORGANIZATION);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "dispel"), DISPEL);
+                new Identifier(PotionCoreRemastered.MOD_ID, "dispel"), DISPEL);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "drown"), DROWN);
+                new Identifier(PotionCoreRemastered.MOD_ID, "drown"), DROWN);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "explode"), EXPLODE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "explode"), EXPLODE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "curse"), CURSE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "curse"), CURSE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "combustion"), COMBUSTION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "combustion"), COMBUSTION);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "loss_accuracy"), LOSS_ACCURACY);
+                new Identifier(PotionCoreRemastered.MOD_ID, "loss_accuracy"), LOSS_ACCURACY);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "vulnerable"), VULNERABLE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "vulnerable"), VULNERABLE);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "rust"), RUST);
+                new Identifier(PotionCoreRemastered.MOD_ID, "rust"), RUST);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "mirror"), MIRROR);
+                new Identifier(PotionCoreRemastered.MOD_ID, "mirror"), MIRROR);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "magic_inhibition"), MAGIC_INHIBITION);
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_inhibition"), MAGIC_INHIBITION);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "spin"), SPIN);
+                new Identifier(PotionCoreRemastered.MOD_ID, "spin"), SPIN);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "weight"), WEIGHT);
+                new Identifier(PotionCoreRemastered.MOD_ID, "weight"), WEIGHT);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "random_teleport"), RANDOM_TELEPORT);
+                new Identifier(PotionCoreRemastered.MOD_ID, "random_teleport"), RANDOM_TELEPORT);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "lightning"), LIGHTNING);
+                new Identifier(PotionCoreRemastered.MOD_ID, "lightning"), LIGHTNING);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "launch"), LAUNCH);
+                new Identifier(PotionCoreRemastered.MOD_ID, "launch"), LAUNCH);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "potion_sickness"), POTION_SICKNESS);
+                new Identifier(PotionCoreRemastered.MOD_ID, "potion_sickness"), POTION_SICKNESS);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "no_flight"), NO_FLIGHT);
+                new Identifier(PotionCoreRemastered.MOD_ID, "no_flight"), NO_FLIGHT);
 
         /*
          * 中立效果
          */
         Registry.register( Registries.STATUS_EFFECT,
-                new Identifier("potioncoreremastered", "chance"), CHANCE);
+                new Identifier(PotionCoreRemastered.MOD_ID, "chance"), CHANCE);
     }
 }

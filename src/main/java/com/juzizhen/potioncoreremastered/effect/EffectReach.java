@@ -1,6 +1,6 @@
 package com.juzizhen.potioncoreremastered.effect;
 
-import com.juzizhen.potioncoreremastered.attribute.ModAttribute;
+import com.juzizhen.potioncoreremastered.attribute.ModAttributes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
@@ -35,7 +35,7 @@ public class EffectReach extends StatusEffect {
     private void updateModifiers(LivingEntity entity, int amplifier) {
         double amount = (amplifier + 1) * 1.0;
 
-        EntityAttributeInstance reachAttr = entity.getAttributeInstance(ModAttribute.REACH);
+        EntityAttributeInstance reachAttr = entity.getAttributeInstance(ModAttributes.REACH);
         if (reachAttr != null) {
             reachAttr.removeModifier(REACH_MODIFIER_UUID);
             EntityAttributeModifier reachModifier = new EntityAttributeModifier(
@@ -47,7 +47,7 @@ public class EffectReach extends StatusEffect {
             reachAttr.addTemporaryModifier(reachModifier);
         }
 
-        EntityAttributeInstance attackRangeAttr = entity.getAttributeInstance(ModAttribute.ATTACK_RANGE);
+        EntityAttributeInstance attackRangeAttr = entity.getAttributeInstance(ModAttributes.ATTACK_RANGE);
         if (attackRangeAttr != null) {
             attackRangeAttr.removeModifier(ATTACK_RANGE_MODIFIER_UUID);
             EntityAttributeModifier attackModifier = new EntityAttributeModifier(
@@ -67,12 +67,12 @@ public class EffectReach extends StatusEffect {
 
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        EntityAttributeInstance reachAttr = entity.getAttributeInstance(ModAttribute.REACH);
+        EntityAttributeInstance reachAttr = entity.getAttributeInstance(ModAttributes.REACH);
         if (reachAttr != null) {
             reachAttr.removeModifier(REACH_MODIFIER_UUID);
         }
 
-        EntityAttributeInstance attackRangeAttr = entity.getAttributeInstance(ModAttribute.ATTACK_RANGE);
+        EntityAttributeInstance attackRangeAttr = entity.getAttributeInstance(ModAttributes.ATTACK_RANGE);
         if (attackRangeAttr != null) {
             attackRangeAttr.removeModifier(ATTACK_RANGE_MODIFIER_UUID);
         }

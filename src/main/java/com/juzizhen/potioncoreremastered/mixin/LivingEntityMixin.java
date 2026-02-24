@@ -1,13 +1,20 @@
 package com.juzizhen.potioncoreremastered.mixin;
 
+import com.juzizhen.potioncoreremastered.attribute.ModAttributes;
 import com.juzizhen.potioncoreremastered.damagetypes.ModDamageTypes;
+import com.juzizhen.potioncoreremastered.effect.EffectMagicFocus;
+import com.juzizhen.potioncoreremastered.effect.EffectMagicShield;
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -27,6 +34,9 @@ public abstract class LivingEntityMixin {
 
     @Shadow
     public abstract boolean hasStatusEffect(StatusEffect effect);
+
+    @Shadow
+    public abstract boolean damage(DamageSource source, float amount);
 
     /*
      * 溺水 DROWN
@@ -76,6 +86,71 @@ public abstract class LivingEntityMixin {
     }
 
     /*
+     * 魔抗 MAGIC_SHIELD
+     */
+    @ModifyVariable(method = "damage", at = @At("HEAD"), ordinal = 0, argsOnly = true)
+    private float modifyMagicShieldDamage(float amount, DamageSource source) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        World world = self.getWorld();
+        if (world.isClient) return amount;
+
+        // 没有魔法护盾效果 或 不是玩家 → 不处理
+        if (!self.hasStatusEffect(ModEffects.MAGIC_SHIELD)) return amount;
+        if (!(self instanceof PlayerEntity)) return amount;
+
+        // 只处理魔法伤害（你可以抽成单独方法更清晰）
+        if (!source.isOf(DamageTypes.MAGIC)
+                && !source.isOf(DamageTypes.INDIRECT_MAGIC)
+                && !source.isOf(DamageTypes.WITHER)
+                && !source.isOf(ModDamageTypes.COUNTERATTACK)) {
+            return amount;
+        }
+
+        EntityAttributeInstance attr = self.getAttributeInstance(ModAttributes.MAGIC_SHIELD);
+        if (attr == null) return amount;
+
+        double magicShield = attr.getValue();
+        if (magicShield <= 0) return amount;
+
+        if (amount >= magicShield) { // 破盾
+            EffectMagicShield.isOverlay = false;
+            self.removeStatusEffect(ModEffects.MAGIC_SHIELD);
+            return (float) (amount - magicShield);
+        }
+        return amount;
+    }
+
+    /*
+     * 魔抗 MAGIC_SHIELD
+     */
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
+    private void cancelMagicDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        World world = self.getWorld();
+        if (world.isClient) return;
+
+        if (!self.hasStatusEffect(ModEffects.MAGIC_SHIELD)) return;
+        if (!(self instanceof PlayerEntity)) return;
+
+        if (source.isOf(DamageTypes.MAGIC)
+                || source.isOf(DamageTypes.INDIRECT_MAGIC)
+                || source.isOf(DamageTypes.WITHER)
+                || source.isOf(ModDamageTypes.COUNTERATTACK)) {
+
+            EntityAttributeInstance attr = self.getAttributeInstance(ModAttributes.MAGIC_SHIELD);
+            if (attr == null) return;
+
+            double magicShield = attr.getValue();
+            if (magicShield > 0 && amount < magicShield) {
+                EffectMagicShield.clearAttribute(attr);
+                EffectMagicShield.setAttribute(attr, magicShield - amount, EntityAttributeModifier.Operation.ADDITION);
+                cir.setReturnValue(false);
+            }
+        }
+    }
+
+
+    /*
      * 反伤 COUNTERATTACK
      */
     @Inject(method = "damage", at = @At("HEAD"))
@@ -101,47 +176,6 @@ public abstract class LivingEntityMixin {
     }
 
     /*
-     * 魔法抑制 MAGIC_INHIBITION
-     */
-    @Inject(method = "addStatusEffect*", at = @At("HEAD"), cancellable = true)
-    private void weakenNewBuff(StatusEffectInstance original, CallbackInfoReturnable<Boolean> cir) {
-        LivingEntity self = (LivingEntity) (Object) this;
-
-        if (self.getWorld().isClient) return;
-        if (self.getCommandTags().contains("potioncoreremastered:internal_weaken")) return;
-
-        StatusEffectInstance inhibitor = self.getStatusEffect(ModEffects.MAGIC_INHIBITION);
-        if (inhibitor != null) {
-            StatusEffect eff = original.getEffectType();
-
-            if (eff == ModEffects.POTION_SICKNESS) return;
-            if (eff == ModEffects.MAGIC_INHIBITION) return;
-
-            int inhibitorLevel = inhibitor.getAmplifier() + 1;
-            double reductionFactor = inhibitorLevel * 0.3;
-
-            int reducedAmp = (int) Math.round(original.getAmplifier() - reductionFactor);
-            if (reducedAmp < 0) reducedAmp = 0;
-
-            StatusEffectInstance newInst = new StatusEffectInstance(
-                    eff,
-                    original.getDuration(),
-                    reducedAmp,
-                    original.isAmbient(),
-                    original.shouldShowParticles(),
-                    original.shouldShowIcon()
-            );
-
-            self.addCommandTag("potioncoreremastered:internal_weaken");
-            try {
-                cir.setReturnValue(self.addStatusEffect(newInst));
-            } finally {
-                self.removeScoreboardTag("potioncoreremastered:internal_weaken");
-            }
-        }
-    }
-
-    /*
      * 沉重 WEIGHT
      */
     @Inject(method = "jump", at = @At("TAIL"))
@@ -159,11 +193,12 @@ public abstract class LivingEntityMixin {
     /*
      * 解毒 ANTIDOTE
      * 凋零抗性 PURITY
+     * 魔抗 MAGIC_SHIELD
      */
     @Inject(method = "addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z", at = @At("HEAD"), cancellable = true)
     private void onAddStatusEffect(StatusEffectInstance effect, @Nullable Entity source, CallbackInfoReturnable<Boolean> cir) {
         if (effect.getEffectType() == StatusEffects.POISON) {
-            LivingEntity self = (LivingEntity)(Object)this;
+            LivingEntity self = (LivingEntity) (Object) this;
             if (self.hasStatusEffect(ModEffects.ANTIDOTE)) {
                 cir.setReturnValue(false);
                 cir.cancel();
@@ -171,11 +206,56 @@ public abstract class LivingEntityMixin {
         }
 
         if (effect.getEffectType() == StatusEffects.WITHER) {
-            LivingEntity self = (LivingEntity)(Object)this;
+            LivingEntity self = (LivingEntity) (Object) this;
             if (self.hasStatusEffect(ModEffects.PURITY)) {
                 cir.setReturnValue(false);
                 cir.cancel();
             }
         }
+
+        if (effect.getEffectType() == ModEffects.MAGIC_SHIELD) {
+            LivingEntity self = (LivingEntity) (Object) this;
+
+            if (self.hasStatusEffect(ModEffects.MAGIC_SHIELD)) {
+                EffectMagicShield.isOverlay = true;
+            }
+
+            if (self instanceof PlayerEntity) {
+                EntityAttributeInstance attr = self.getAttributeInstance(ModAttributes.MAGIC_SHIELD);
+                if (attr != null) {
+                    float amp = effect.getAmplifier() + 1;
+                    double value = attr.getValue() + 4.0F * amp;
+                    EffectMagicShield.clearAttribute(attr);
+                    EffectMagicShield.setAttribute(attr, value, EntityAttributeModifier.Operation.ADDITION);
+                }
+            }
+        }
+    }
+
+    @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true, ordinal = 0)
+    private float modifyMagicDamage(float amount, DamageSource source) {
+        LivingEntity attacker = EffectMagicFocus.getLivingEntity(source);
+        if (source.isOf(DamageTypes.MAGIC) || source.isOf(DamageTypes.INDIRECT_MAGIC)) {
+            if (attacker != null) {
+                float finalDamage = amount;
+                if (attacker.hasStatusEffect(ModEffects.MAGIC_INHIBITION)) {
+                    StatusEffectInstance StatusEffect = attacker.getStatusEffect(ModEffects.MAGIC_INHIBITION);
+                    if (StatusEffect != null) {
+                        int amp = StatusEffect.getAmplifier();
+                        finalDamage = finalDamage - (amp + 1) * 0.3f;
+                    }
+                }
+
+                if (attacker.hasStatusEffect(ModEffects.MAGIC_FOCUS)) {
+                    StatusEffectInstance StatusEffect = attacker.getStatusEffect(ModEffects.MAGIC_FOCUS);
+                    if (StatusEffect != null) {
+                        int amp = StatusEffect.getAmplifier();
+                        finalDamage = finalDamage + (amp + 1) * 0.75f;
+                    }
+                }
+                return finalDamage;
+            }
+        }
+        return amount;
     }
 }

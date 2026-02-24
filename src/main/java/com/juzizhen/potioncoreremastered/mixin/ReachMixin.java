@@ -1,6 +1,6 @@
 package com.juzizhen.potioncoreremastered.mixin;
 
-import com.juzizhen.potioncoreremastered.attribute.ModAttribute;
+import com.juzizhen.potioncoreremastered.attribute.ModAttributes;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ViewerCountManager;
@@ -47,7 +47,7 @@ public class ReachMixin {
                 require = 2, allow = 2, constant = { @Constant(floatValue = 5.0F), @Constant(floatValue = 4.5F) })
         private float getActualReachDistance(final float reachDistance) {
             if (this.client.player != null) {
-                return (float) ModAttribute.getReachDistance(this.client.player, reachDistance);
+                return (float) ModAttributes.getReachDistance(this.client.player, reachDistance);
             }
             return reachDistance;
         }
@@ -62,7 +62,7 @@ public class ReachMixin {
                 require = 1, allow = 1, constant = @Constant(doubleValue = 6.0))
         private double getActualReachDistance(final double reachDistance) {
             if (this.client.player != null) {
-                return ModAttribute.getReachDistance(this.client.player, reachDistance);
+                return ModAttributes.getReachDistance(this.client.player, reachDistance);
             }
             return reachDistance;
         }
@@ -70,7 +70,7 @@ public class ReachMixin {
         @ModifyConstant(method = "updateTargetedEntity(F)V", constant = @Constant(doubleValue = 3.0))
         private double getActualAttackRange0(final double attackRange) {
             if (this.client.player != null) {
-                return ModAttribute.getAttackRange(this.client.player, attackRange);
+                return ModAttributes.getAttackRange(this.client.player, attackRange);
             }
             return attackRange;
         }
@@ -78,7 +78,7 @@ public class ReachMixin {
         @ModifyConstant(method = "updateTargetedEntity(F)V", constant = @Constant(doubleValue = 9.0))
         private double getActualAttackRange1(final double attackRange) {
             if (this.client.player != null) {
-                return ModAttribute.getSquaredAttackRange(this.client.player, attackRange);
+                return ModAttributes.getSquaredAttackRange(this.client.player, attackRange);
             }
             return attackRange;
         }
@@ -95,7 +95,7 @@ public class ReachMixin {
                 at = @At(value = "INVOKE", opcode = Opcodes.INVOKEVIRTUAL,
                         target = "Lnet/minecraft/block/entity/ViewerCountManager;getInRangeViewerCount(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)I"))
         private int getReachAccountingOpenCount(final ViewerCountManager manager, final World world, final BlockPos pos) {
-            return ModAttribute.getPlayersWithinReach(this::isPlayerViewing, world, pos.getX(), pos.getY(), pos.getZ(), 5.0).size();
+            return ModAttributes.getPlayersWithinReach(this::isPlayerViewing, world, pos.getX(), pos.getY(), pos.getZ(), 5.0).size();
         }
     }
 
@@ -109,7 +109,7 @@ public class ReachMixin {
                 method = "method_24924(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Ljava/lang/Boolean;",
                 require = 1, allow = 1, constant = @Constant(doubleValue = 64.0))
         private double getActualReachDistance(final double reachDistance, final PlayerEntity player) {
-            return ModAttribute.getSquaredReachDistance(player, reachDistance);
+            return ModAttributes.getSquaredReachDistance(player, reachDistance);
         }
     }
 
@@ -121,7 +121,7 @@ public class ReachMixin {
                 at = @At(shift = At.Shift.BEFORE, value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getX()I"),
                 locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
         private static void checkWithinActualReach(final BlockEntity blockEntity, final PlayerEntity player, final int reachDistance, final CallbackInfoReturnable<Boolean> cir, final World world, final BlockPos pos) {
-            if (player.squaredDistanceTo(pos.toCenterPos()) <= ModAttribute.getSquaredReachDistance(player, reachDistance * reachDistance)) {
+            if (player.squaredDistanceTo(pos.toCenterPos()) <= ModAttributes.getSquaredReachDistance(player, reachDistance * reachDistance)) {
                 cir.setReturnValue(true);
             }
         }
@@ -133,7 +133,7 @@ public class ReachMixin {
                 method = "raycast(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/RaycastContext$FluidHandling;)Lnet/minecraft/util/hit/BlockHitResult;",
                 require = 4, allow = 4, constant = @Constant(doubleValue = 5.0))
         private static double getActualReachDistance(final double reachDistance, final World world, final PlayerEntity player) {
-            return ModAttribute.getReachDistance(player, reachDistance);
+            return ModAttributes.getReachDistance(player, reachDistance);
         }
     }
 
@@ -147,7 +147,7 @@ public class ReachMixin {
                 method = "createLivingAttributes()Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;",
                 require = 1, allow = 1, at = @At("RETURN"))
         private static void addAttributes(final CallbackInfoReturnable<DefaultAttributeContainer.Builder> info) {
-            info.getReturnValue().add(ModAttribute.REACH).add(ModAttribute.ATTACK_RANGE);
+            info.getReturnValue().add(ModAttributes.REACH).add(ModAttributes.ATTACK_RANGE);
         }
     }
 
@@ -158,7 +158,7 @@ public class ReachMixin {
 
         @Inject(method = "attack()V", at = @At("HEAD"), require = 1, allow = 1, cancellable = true)
         private void ensureWithinAttackRange(final CallbackInfo ci) {
-            if (!ModAttribute.isWithinAttackRange(this.field_28963.player, this.field_28962)) {
+            if (!ModAttributes.isWithinAttackRange(this.field_28963.player, this.field_28962)) {
                 ci.cancel();
             }
         }
@@ -172,7 +172,7 @@ public class ReachMixin {
 
         @ModifyConstant(method = "attack(Lnet/minecraft/entity/Entity;)V", constant = @Constant(doubleValue = 9.0))
         private double getActualAttackRange(final double attackRange) {
-            return ModAttribute.getSquaredAttackRange(this, attackRange);
+            return ModAttributes.getSquaredAttackRange(this, attackRange);
         }
     }
 
@@ -182,7 +182,7 @@ public class ReachMixin {
                 method = "method_17696(Lnet/minecraft/block/Block;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Ljava/lang/Boolean;",
                 require = 1, allow = 1, constant = @Constant(doubleValue = 64.0))
         private static double getActualReachDistance(final double reachDistance, final Block block, final PlayerEntity player) {
-            return ModAttribute.getSquaredReachDistance(player, reachDistance);
+            return ModAttributes.getSquaredReachDistance(player, reachDistance);
         }
     }
 
@@ -194,7 +194,7 @@ public class ReachMixin {
                 method = "processBlockBreakingAction",
                 at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D", opcode = Opcodes.GETSTATIC))
         private double getActualReachDistance() {
-            return ModAttribute.getSquaredReachDistance(this.player, ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE);
+            return ModAttributes.getSquaredReachDistance(this.player, ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE);
         }
     }
 
@@ -211,21 +211,21 @@ public class ReachMixin {
                 method = "onPlayerInteractEntity(Lnet/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket;)V",
                 at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D", opcode = Opcodes.GETSTATIC))
         private double getActualAttackRange() {
-            return ModAttribute.getSquaredReachDistance(this.player, ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE);
+            return ModAttributes.getSquaredReachDistance(this.player, ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE);
         }
 
         @Redirect(
                 method = "onPlayerInteractBlock(Lnet/minecraft/network/packet/c2s/play/PlayerInteractBlockC2SPacket;)V",
                 at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D", opcode = Opcodes.GETSTATIC))
         private double getActualReachDistance() {
-            return ModAttribute.getSquaredReachDistance(this.player, ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE);
+            return ModAttributes.getSquaredReachDistance(this.player, ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE);
         }
 
         @ModifyConstant(
                 method = "onPlayerInteractBlock(Lnet/minecraft/network/packet/c2s/play/PlayerInteractBlockC2SPacket;)V",
                 require = 1, allow = 1, constant = @Constant(doubleValue = 64.0))
         private double getActualReachDistance(final double reachDistance) {
-            return ModAttribute.getSquaredReachDistance(this.player, reachDistance);
+            return ModAttributes.getSquaredReachDistance(this.player, reachDistance);
         }
     }
 
@@ -235,7 +235,7 @@ public class ReachMixin {
                 method = "canPlayerAccess(Lnet/minecraft/entity/player/PlayerEntity;)Z",
                 require = 1, allow = 1, constant = @Constant(doubleValue = 8.0))
         private static double getActualReachDistance(final double reachDistance, final PlayerEntity player) {
-            return ModAttribute.getReachDistance(player, reachDistance);
+            return ModAttributes.getReachDistance(player, reachDistance);
         }
     }
 }

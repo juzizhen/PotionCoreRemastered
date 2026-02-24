@@ -8,7 +8,6 @@ import net.minecraft.util.Identifier;
 
 public class ModEffects {
     // 正面效果
-    public static final StatusEffect SUSTAINED_SATURATION = new EffectSustainedSaturation();
     public static final StatusEffect ANTIDOTE = new EffectAntidote();
     public static final StatusEffect IMPROVE_ACCURACY = new EffectImproveAccuracy();
     public static final StatusEffect BLESS = new EffectBless();
@@ -28,6 +27,8 @@ public class ModEffects {
     public static final StatusEffect REACH = new EffectReach();
     public static final StatusEffect IRON_SKIN = new EffectIronSkin();
     public static final StatusEffect COUNTERATTACK = new EffectCounterattack();
+    public static final StatusEffect MAGIC_SHIELD = new EffectMagicShield();
+    public static final StatusEffect MAGIC_FOCUS = new EffectMagicFocus();
 
     // 负面效果
     public static final StatusEffect BROKEN_ARMOR = new EffectBrokenArmor();
@@ -50,6 +51,7 @@ public class ModEffects {
     public static final StatusEffect POTION_SICKNESS = new EffectPotionSickness();
     public static final StatusEffect NO_FLIGHT = new EffectNoFlight();
     public static final StatusEffect BURST = new EffectBurst();
+    public static final StatusEffect BROKEN_MAGIC = new EffectBrokenMagic();
 
     //中立效果
     public static final StatusEffect CHANCE = new EffectChance();
@@ -59,9 +61,6 @@ public class ModEffects {
         /*
          * 正面效果
          */
-        Registry.register( Registries.STATUS_EFFECT,
-                new Identifier(PotionCoreRemastered.MOD_ID, "sustained_saturation"), SUSTAINED_SATURATION);
-
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "antidote"), ANTIDOTE);
 
@@ -122,6 +121,12 @@ public class ModEffects {
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "counterattack"), COUNTERATTACK);
 
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_shield"), MAGIC_SHIELD);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_focus"), MAGIC_FOCUS);
+
         /*
          * 负面效果
          */
@@ -181,6 +186,9 @@ public class ModEffects {
 
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "no_flight"), NO_FLIGHT);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "broken_magic"), BROKEN_MAGIC);
 
         /*
          * 中立效果

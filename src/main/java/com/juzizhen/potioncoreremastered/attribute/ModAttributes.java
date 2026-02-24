@@ -1,7 +1,9 @@
 package com.juzizhen.potioncoreremastered.attribute;
 
 import com.juzizhen.potioncoreremastered.PotionCoreRemastered;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -16,9 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ModAttribute {
+public class ModAttributes {
     public static final EntityAttribute REACH = make("reach", 0.0, -1024.0, 1024.0);
     public static final EntityAttribute ATTACK_RANGE = make("attack_range", 0.0, -1024.0, 1024.0);
+    public static final EntityAttribute MAGIC_SHIELD = make("magic_shield", 0.0, 0.0, Integer.MAX_VALUE);
 
     public static double getReachDistance(final LivingEntity entity, final double baseReachDistance) {
         @Nullable final var reachDistance = entity.getAttributeInstance(REACH);
@@ -38,10 +41,6 @@ public class ModAttribute {
     public static double getSquaredAttackRange(final LivingEntity entity, final double sqBaseAttackRange) {
         final var attackRange = getAttackRange(entity, Math.sqrt(sqBaseAttackRange));
         return attackRange * attackRange;
-    }
-
-    public static List<PlayerEntity> getPlayersWithinReach(final World world, final int x, final int y, final int z, final double baseReachDistance) {
-        return getPlayersWithinReach(player -> true, world, x, y, z, baseReachDistance);
     }
 
     public static List<PlayerEntity> getPlayersWithinReach(final Predicate<PlayerEntity> viewerPredicate, final World world, final int x, final int y, final int z, final double baseReachDistance) {
@@ -71,5 +70,8 @@ public class ModAttribute {
     public static void registerAttribute() {
         Registry.register(Registries.ATTRIBUTE, new Identifier(PotionCoreRemastered.MOD_ID, "reach"), REACH);
         Registry.register(Registries.ATTRIBUTE, new Identifier(PotionCoreRemastered.MOD_ID, "attack_range"), ATTACK_RANGE);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(PotionCoreRemastered.MOD_ID, "magic_shield"), MAGIC_SHIELD);
+
+        FabricDefaultAttributeRegistry.register(EntityType.PLAYER, PlayerEntity.createPlayerAttributes().add(MAGIC_SHIELD).add(ModAttributes.MAGIC_SHIELD, 0));
     }
 }

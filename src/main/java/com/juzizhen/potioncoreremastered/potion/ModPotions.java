@@ -12,17 +12,6 @@ public class ModPotions {
     /*
      * 正面效果
      */
-    public static final Potion SUSTAINED_SATURATION_POTION = new Potion(
-            new StatusEffectInstance(ModEffects.SUSTAINED_SATURATION, 3600, 0)
-    );
-    public static final Potion LONG_SUSTAINED_SATURATION_POTION = new Potion(
-            new StatusEffectInstance(ModEffects.SUSTAINED_SATURATION, 9600, 0)
-    );
-    public static final Potion STRONG_SUSTAINED_SATURATION_POTION = new Potion(
-            "sustained_saturation",
-            new StatusEffectInstance(ModEffects.SUSTAINED_SATURATION, 1800, 1)
-    );
-
     public static final Potion ANTIDOTE_POTION = new Potion(
             new StatusEffectInstance(ModEffects.ANTIDOTE, 3600, 0)
     );
@@ -199,6 +188,28 @@ public class ModPotions {
     public static final Potion STRONG_COUNTERATTACK_POTION = new Potion(
             "counterattack",
             new StatusEffectInstance(ModEffects.COUNTERATTACK, 1800, 1)
+    );
+
+    public static final Potion MAGIC_SHIELD_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.MAGIC_SHIELD, 3600, 0)
+    );
+    public static final Potion LONG_MAGIC_SHIELD_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.MAGIC_SHIELD, 9600, 0)
+    );
+    public static final Potion STRONG_MAGIC_SHIELD_POTION = new Potion(
+            "magic_shield",
+            new StatusEffectInstance(ModEffects.MAGIC_SHIELD, 1800, 1)
+    );
+
+    public static final Potion MAGIC_FOCUS_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.MAGIC_FOCUS, 3600, 0)
+    );
+    public static final Potion LONG_MAGIC_FOCUS_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.MAGIC_FOCUS, 9600, 0)
+    );
+    public static final Potion STRONG_MAGIC_FOCUS_POTION = new Potion(
+            "magic_focus",
+            new StatusEffectInstance(ModEffects.MAGIC_FOCUS, 1800, 1)
     );
 
     /*
@@ -379,6 +390,17 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.NO_FLIGHT, 9600, 0)
     );
 
+    public static final Potion BROKEN_MAGIC_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.BROKEN_MAGIC, 3600, 0)
+    );
+    public static final Potion LONG_BROKEN_MAGIC_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.BROKEN_MAGIC, 9600, 0)
+    );
+    public static final Potion STRONG_BROKEN_MAGIC_POTION = new Potion(
+            "broken_magic",
+            new StatusEffectInstance(ModEffects.BROKEN_MAGIC, 1800, 1)
+    );
+
     /*
      * 中立效果
      */
@@ -391,7 +413,6 @@ public class ModPotions {
 
     public static void registerPotions() {
         // 正面效果
-        registerSustainedSaturation(); // 持续饱和 Sustained Saturation
         registerAntidote(); // 解毒 Antidote
         registerImproveAccuracy(); // 提高精度 Improve Accuracy
         registerBless(); // 祝福 Bless
@@ -412,6 +433,8 @@ public class ModPotions {
         registerReach(); // 延伸 Reach
         registerIronSkin(); // 铁皮 Iron Skin
         registerCounterattack(); // 反伤 Counterattack
+        registerBrokenMagic(); // 破魔 Broken Magic
+        registerMagicFocus(); // 魔力聚焦 Magic Focus
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -432,6 +455,7 @@ public class ModPotions {
         registerLightning(); // 闪电 Lightning
         registerLaunch(); // 发射 Launch
         registerNoFlight(); // 禁空 No Flight
+        registerMagicShield(); // 魔抗 magic_shield
 
         // 中立效果
         registerChance(); // 运气 Chance
@@ -440,19 +464,6 @@ public class ModPotions {
     /*
      * 正面效果
      */
-    private static void registerSustainedSaturation() {
-        // 持续饱和 Sustained Saturation
-        // 注册普通版
-        Registry.register(Registries.POTION,
-                new Identifier(PotionCoreRemastered.MOD_ID, "sustained_saturation"), SUSTAINED_SATURATION_POTION);
-        // 注册延长版
-        Registry.register(Registries.POTION,
-                new Identifier(PotionCoreRemastered.MOD_ID, "long_sustained_saturation"), LONG_SUSTAINED_SATURATION_POTION);
-        // 注册增强版
-        Registry.register(Registries.POTION,
-                new Identifier(PotionCoreRemastered.MOD_ID, "strong_sustained_saturation"), STRONG_SUSTAINED_SATURATION_POTION);
-    }
-
     private static void registerAntidote() {
         // 解毒 Antidote
         // 注册普通版
@@ -680,6 +691,33 @@ public class ModPotions {
                 new Identifier(PotionCoreRemastered.MOD_ID, "strong_counterattack"), STRONG_COUNTERATTACK_POTION);
     }
 
+    private static void registerMagicShield() {
+        // 魔抗 magic_shield
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_shield"), MAGIC_SHIELD_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_magic_shield"), LONG_MAGIC_SHIELD_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_magic_shield"), STRONG_MAGIC_SHIELD_POTION);
+    }
+
+    private static void registerMagicFocus() {
+        // 魔力聚焦 Magic Focus
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_focus"), MAGIC_FOCUS_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_magic_focus"), LONG_MAGIC_FOCUS_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_magic_focus"), STRONG_MAGIC_FOCUS_POTION);
+    }
+
+
     /*
      * 负面效果
      */
@@ -900,6 +938,19 @@ public class ModPotions {
         // 注册延长版
         Registry.register(Registries.POTION,
                 new Identifier(PotionCoreRemastered.MOD_ID, "long_no_flight"), LONG_NO_FLIGHT_POTION);
+    }
+
+    private static void registerBrokenMagic() {
+        // 破魔 Broken Magic
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "broken_magic"), BROKEN_MAGIC_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_broken_magic"), LONG_BROKEN_MAGIC_POTION);
+        // 注册增强版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "strong_broken_magic"), STRONG_BROKEN_MAGIC_POTION);
     }
 
     /*

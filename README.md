@@ -20,8 +20,8 @@ Adds a whole lot of potion effects to the game.
  - 脆弱
  - 腐蚀
  - 镜像
- - 魔力抑制（未完成）
- - 破魔（未完成）
+ - 魔力抑制
+ - 破魔
  - 晕头转向 
  - 沉重
  - 随机传送
@@ -30,7 +30,6 @@ Adds a whole lot of potion effects to the game.
  - 药水病
  - 禁空
 ##### 正面效果
- - 持续饱和
  - 解毒
  - 提高精度
  - 祝福
@@ -44,7 +43,7 @@ Adds a whole lot of potion effects to the game.
  - 高踏
  - 凋零抗性
  - 稳固
- - 魔力聚焦（未完成）
+ - 魔力聚焦
  - 飞行
  - 爱情
  - 地面传送
@@ -52,6 +51,7 @@ Adds a whole lot of potion effects to the game.
  - 铁皮
  - 魔抗
  - 反伤
+ - 魔抗
 
  - 大胃王（暂定）
  - 扭曲（暂定）

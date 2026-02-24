@@ -9,13 +9,19 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
     public boolean PotionSicknessEnabled = false;
 
-
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 0, max = Integer.MAX_VALUE)
     public String PotionSicknessBadEffectChance = "1000";
 
-
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 0, max = Integer.MAX_VALUE)
     public String PotionSicknessThreshold = "8";
+
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(min = Integer.MIN_VALUE, max = Integer.MAX_VALUE)
+    public String MagicShieldHUDextraX = "0";
+
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(min = Integer.MIN_VALUE, max = Integer.MAX_VALUE)
+    public String MagicShieldHUDextraY = "0";
 }

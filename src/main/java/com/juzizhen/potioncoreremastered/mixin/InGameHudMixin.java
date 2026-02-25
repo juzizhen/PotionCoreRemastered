@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class InGameHudMixin {
 
     @Unique
-    private static final Identifier ICON = new Identifier(PotionCoreRemastered.MOD_ID, "textures/gui/magic_shield_test.png");
+    private static final Identifier ICON = new Identifier(PotionCoreRemastered.MOD_ID, "textures/gui/magic_shield");
     @Unique
     int extraX = EffectClassifier.safeParseInt(PotionCoreRemastered.CONFIG.MagicShieldHUDextraX, 0);
     @Unique
@@ -95,7 +95,7 @@ public abstract class InGameHudMixin {
 
         // 显示数值
         String text = String.valueOf(magicShield);
-        drawContext.drawText(client.textRenderer, text, x + 2, y + 2, 0xFFFFFF, true);
+        drawContext.drawText(client.textRenderer, text, x + 2, y, 0xFFFFFF, true);
     }
 
     // 第n层的半个图标 UV

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EffectOrderliness extends StatusEffect {
     public EffectOrderliness() {
-        super(StatusEffectCategory.HARMFUL, 0x40E0D0);
+        super(StatusEffectCategory.BENEFICIAL, 0x40E0D0);
     }
 
     public static void sortInventoryByName(PlayerEntity player) {

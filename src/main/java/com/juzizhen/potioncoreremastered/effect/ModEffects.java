@@ -58,7 +58,6 @@ public class ModEffects {
     public static final StatusEffect CHANCE = new EffectChance();
     public static final StatusEffect INVERT = new EffectInvert();
 
-
     public static void registerEffects() {
         /*
          * 正面效果

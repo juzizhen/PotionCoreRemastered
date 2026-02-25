@@ -57,7 +57,8 @@ public class EffectClassifier {
         OPPOSITE_EFFECTS.put(StatusEffects.SPEED, StatusEffects.SLOWNESS);
         OPPOSITE_EFFECTS.put(StatusEffects.STRENGTH, StatusEffects.WEAKNESS);
         OPPOSITE_EFFECTS.put(StatusEffects.LUCK, StatusEffects.UNLUCK);
-        OPPOSITE_EFFECTS.put(ModEffects.DISORGANIZATION, ModEffects.ORDERLINESS);
+        OPPOSITE_EFFECTS.put(ModEffects.ORDERLINESS, ModEffects.DISORGANIZATION);
+
     }
 
     public static boolean isBeneficial(StatusEffect effect) {

@@ -18,6 +18,9 @@
 		"main": [
 			"com.juzizhen.potioncoreremastered.PotionCoreRemastered"
 		],
+		"client": [
+			"com.juzizhen.potioncoreremastered.PotionCoreRemasteredClient"
+		],
 		"modmenu": [
 			"com.juzizhen.potioncoreremastered.config.ModMenuCompat"
 		]

@@ -212,6 +212,13 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.MAGIC_FOCUS, 1800, 1)
     );
 
+    public static final Potion ORDERLINESS_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.ORDERLINESS, 3600, 0)
+    );
+    public static final Potion LONG_ORDERLINESS_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.ORDERLINESS, 9600, 0)
+    );
+
     /*
      * 负面效果
      */
@@ -411,6 +418,10 @@ public class ModPotions {
             new StatusEffectInstance(ModEffects.CHANCE, 9600, 0)
     );
 
+    public static final Potion INVERT_POTION = new Potion(
+            new StatusEffectInstance(ModEffects.INVERT, 1, 0)
+    );
+
     public static void registerPotions() {
         // 正面效果
         registerAntidote(); // 解毒 Antidote
@@ -435,6 +446,7 @@ public class ModPotions {
         registerCounterattack(); // 反伤 Counterattack
         registerBrokenMagic(); // 破魔 Broken Magic
         registerMagicFocus(); // 魔力聚焦 Magic Focus
+        registerOrderliness(); // 有序 Orderliness
 
         // 负面效果
         registerBrokenArmor(); // 护甲减效 Broken Armor
@@ -459,6 +471,7 @@ public class ModPotions {
 
         // 中立效果
         registerChance(); // 运气 Chance
+        registerInvert(); // 颠倒 Invert
     }
 
     /*
@@ -717,6 +730,15 @@ public class ModPotions {
                 new Identifier(PotionCoreRemastered.MOD_ID, "strong_magic_focus"), STRONG_MAGIC_FOCUS_POTION);
     }
 
+    private static void registerOrderliness() {
+        // 有序 Orderliness
+        // 注册普通版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "orderliness"), ORDERLINESS_POTION);
+        // 注册延长版
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "long_orderliness"), LONG_ORDERLINESS_POTION);
+    }
 
     /*
      * 负面效果
@@ -965,4 +987,10 @@ public class ModPotions {
         Registry.register(Registries.POTION,
                 new Identifier(PotionCoreRemastered.MOD_ID, "long_chance"), LONG_CHANCE_POTION);
     }
+
+    private static void registerInvert() {
+        // 颠倒 Invert
+        // 注册 Invert
+        Registry.register(Registries.POTION,
+                new Identifier(PotionCoreRemastered.MOD_ID, "invert"), INVERT_POTION);}
 }

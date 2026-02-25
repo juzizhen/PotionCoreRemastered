@@ -15,7 +15,6 @@ Adds a whole lot of potion effects to the game.
  - 溺水
  - 爆破
  - 燃烧
- - 颠倒（未完成）
  - 精度下降
  - 脆弱
  - 腐蚀
@@ -52,9 +51,15 @@ Adds a whole lot of potion effects to the game.
  - 魔抗
  - 反伤
  - 魔抗
+ - 有序
+ - 避雷
 
  - 大胃王（暂定）
  - 扭曲（暂定）
  - 强化吸收（暂定）
+ - 减最大生命值（暂定）
 ##### 中立效果
  - 运气
+ - 颠倒
+
+#### 颠倒效果列表

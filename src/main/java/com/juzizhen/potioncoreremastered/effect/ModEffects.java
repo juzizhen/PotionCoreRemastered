@@ -29,6 +29,7 @@ public class ModEffects {
     public static final StatusEffect COUNTERATTACK = new EffectCounterattack();
     public static final StatusEffect MAGIC_SHIELD = new EffectMagicShield();
     public static final StatusEffect MAGIC_FOCUS = new EffectMagicFocus();
+    public static final StatusEffect ORDERLINESS = new EffectOrderliness();
 
     // 负面效果
     public static final StatusEffect BROKEN_ARMOR = new EffectBrokenArmor();
@@ -55,6 +56,7 @@ public class ModEffects {
 
     //中立效果
     public static final StatusEffect CHANCE = new EffectChance();
+    public static final StatusEffect INVERT = new EffectInvert();
 
 
     public static void registerEffects() {
@@ -127,6 +129,9 @@ public class ModEffects {
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "magic_focus"), MAGIC_FOCUS);
 
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "orderliness"), ORDERLINESS);
+
         /*
          * 负面效果
          */
@@ -195,5 +200,9 @@ public class ModEffects {
          */
         Registry.register( Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "chance"), CHANCE);
+
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "invert"), INVERT);
     }
 }

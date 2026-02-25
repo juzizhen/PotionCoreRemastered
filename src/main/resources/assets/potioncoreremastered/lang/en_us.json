@@ -10,6 +10,8 @@
   "text.autoconfig.potioncoreremastered.option.MagicShieldHUDextraX.@Tooltip": "Adjusts the HUD’s horizontal position by applying an extra offset to the X coordinate.",
   "text.autoconfig.potioncoreremastered.option.MagicShieldHUDextraY": "HUD Y Coordinate Modifier",
   "text.autoconfig.potioncoreremastered.option.MagicShieldHUDextraY.@Tooltip": "Adjusts the HUD’s horizontal position by applying an extra offset to the Y coordinate.",
+  "text.autoconfig.potioncoreremastered.option.BackpackAutoSortInterval": "Backpack auto-sort interval",
+  "text.autoconfig.potioncoreremastered.option.BackpackAutoSortInterval.@Tooltip": "Defines how often the backpack is automatically sorted. The value represents the interval between each auto-sort cycle, measured in seconds.",
 
   "attribute.name.generic.potioncoreremastered.reach": "Reach",
   "attribute.name.generic.potioncoreremastered.attack_range": "Attack Range",
@@ -17,20 +19,6 @@
 
   "death.attack.counterattack": "%1$s was slain by counterattack",
   "death.attack.counterattack.player": "%1$s was slain by %2$s's counterattack",
-
-  "effect.potioncoreremastered.sustained_saturation": "Sustained Saturation",
-  "item.minecraft.potion.effect.sustained_saturation": "Potion of Sustained Saturation",
-  "item.minecraft.potion.effect.long_sustained_saturation": "Potion of Sustained Saturation",
-  "item.minecraft.potion.effect.strong_sustained_saturation": "Potion of Sustained Saturation",
-  "item.minecraft.splash_potion.effect.sustained_saturation": "Splash Potion of Sustained Saturation",
-  "item.minecraft.splash_potion.effect.strong_sustained_saturation": "Splash Potion of Sustained Saturation",
-  "item.minecraft.splash_potion.effect.long_sustained_saturation": "Splash Potion of Sustained Saturation",
-  "item.minecraft.lingering_potion.effect.long_sustained_saturation": "Lingering Potion of Sustained Saturation",
-  "item.minecraft.lingering_potion.effect.strong_sustained_saturation": "Lingering Potion of Sustained Saturation",
-  "item.minecraft.lingering_potion.effect.sustained_saturation": "Lingering Potion of Sustained Saturation",
-  "item.minecraft.tipped_arrow.effect.long_sustained_saturation": "Arrow of Sustained Saturation",
-  "item.minecraft.tipped_arrow.effect.strong_sustained_saturation": "Arrow of Sustained Saturation",
-  "item.minecraft.tipped_arrow.effect.sustained_saturation": "Arrow of Sustained Saturation",
 
   "effect.potioncoreremastered.antidote": "Antidote",
   "item.minecraft.potion.effect.antidote": "Potion of Antidote",
@@ -296,6 +284,16 @@
   "item.minecraft.tipped_arrow.effect.strong_magic_focus": "Arrow of Magic Focus",
   "item.minecraft.tipped_arrow.effect.magic_focus": "Arrow of Magic Focus",
 
+  "effect.potioncoreremastered.orderliness": "Orderliness",
+  "item.minecraft.potion.effect.orderliness": "Potion of Orderliness",
+  "item.minecraft.potion.effect.long_orderliness": "Potion of Orderliness",
+  "item.minecraft.splash_potion.effect.orderliness": "Splash Potion of Orderliness",
+  "item.minecraft.splash_potion.effect.long_orderliness": "Splash Potion of Orderliness",
+  "item.minecraft.lingering_potion.effect.long_orderliness": "Lingering Potion of Orderliness",
+  "item.minecraft.lingering_potion.effect.orderliness": "Lingering Potion of Orderliness",
+  "item.minecraft.tipped_arrow.effect.orderliness": "Arrow of Orderliness",
+  "item.minecraft.tipped_arrow.effect.long_orderliness": "Arrow of Orderliness",
+
   "effect.potioncoreremastered.broken_armor": "Broken Armor",
   "item.minecraft.potion.effect.broken_armor": "Potion of Broken Armor",
   "item.minecraft.potion.effect.long_broken_armor": "Potion of Broken Armor",
@@ -530,16 +528,6 @@
   "item.minecraft.tipped_arrow.effect.no_flight": "Arrow of No Flight",
   "item.minecraft.tipped_arrow.effect.long_no_flight": "Arrow of No Flight",
 
-  "effect.potioncoreremastered.chance": "Chance",
-  "item.minecraft.potion.effect.chance": "Potion of Chance",
-  "item.minecraft.potion.effect.long_chance": "Potion of Chance",
-  "item.minecraft.splash_potion.effect.chance": "Splash Potion of Chance",
-  "item.minecraft.splash_potion.effect.long_chance": "Splash Potion of Chance",
-  "item.minecraft.lingering_potion.effect.long_chance": "Lingering Potion of Chance",
-  "item.minecraft.lingering_potion.effect.chance": "Lingering Potion of Chance",
-  "item.minecraft.tipped_arrow.effect.chance": "Arrow of Chance",
-  "item.minecraft.tipped_arrow.effect.long_chance": "Arrow of Chance",
-
   "effect.potioncoreremastered.broken_magic": "Broken Magic",
   "item.minecraft.potion.effect.broken_magic": "Potion of Broken Magic",
   "item.minecraft.potion.effect.long_broken_magic": "Potion of Broken Magic",
@@ -552,5 +540,21 @@
   "item.minecraft.lingering_potion.effect.broken_magic": "Lingering Potion of Broken Magic",
   "item.minecraft.tipped_arrow.effect.long_broken_magic": "Arrow of Broken Magic",
   "item.minecraft.tipped_arrow.effect.strong_broken_magic": "Arrow of Broken Magic",
-  "item.minecraft.tipped_arrow.effect.broken_magic": "Arrow of Broken Magic"
+  "item.minecraft.tipped_arrow.effect.broken_magic": "Arrow of Broken Magic",
+
+  "effect.potioncoreremastered.chance": "Chance",
+  "item.minecraft.potion.effect.chance": "Potion of Chance",
+  "item.minecraft.potion.effect.long_chance": "Potion of Chance",
+  "item.minecraft.splash_potion.effect.chance": "Splash Potion of Chance",
+  "item.minecraft.splash_potion.effect.long_chance": "Splash Potion of Chance",
+  "item.minecraft.lingering_potion.effect.long_chance": "Lingering Potion of Chance",
+  "item.minecraft.lingering_potion.effect.chance": "Lingering Potion of Chance",
+  "item.minecraft.tipped_arrow.effect.chance": "Arrow of Chance",
+  "item.minecraft.tipped_arrow.effect.long_chance": "Arrow of Chance",
+
+  "effect.potioncoreremastered.invert": "Invert",
+  "item.minecraft.potion.effect.invert": "Potion of Invert",
+  "item.minecraft.splash_potion.effect.invert": "Splash Potion of Invert",
+  "item.minecraft.lingering_potion.effect.invert": "Lingering Potion of Invert",
+  "item.minecraft.tipped_arrow.effect.invert": "Arrow of Invert"
 }

@@ -10,6 +10,8 @@
   "text.autoconfig.potioncoreremastered.option.MagicShieldHUDextraX.@Tooltip": "通过对 X 坐标添加额外的偏移量来调整魔法护盾条的水平位置。",
   "text.autoconfig.potioncoreremastered.option.MagicShieldHUDextraY": "魔法护盾条 Y 轴偏移量",
   "text.autoconfig.potioncoreremastered.option.MagicShieldHUDextraY.@Tooltip": "通过对 Y 坐标添加额外的偏移量来调整魔法护盾条的垂直位置。",
+  "text.autoconfig.potioncoreremastered.option.BackpackAutoSortInterval": "定期背包整理间隔",
+  "text.autoconfig.potioncoreremastered.option.BackpackAutoSortInterval.@Tooltip": "背包会按照设定的间隔自动整理。该数值代表整理周期，单位：秒。",
 
   "attribute.name.generic.potioncoreremastered.reach": "交互距离",
   "attribute.name.generic.potioncoreremastered.attack_range": "攻击距离",
@@ -17,20 +19,6 @@
 
   "death.attack.counterattack": "%1$s 死于反伤",
   "death.attack.counterattack.player": "%1$s 死于 %2$s 的反伤",
-
-"effect.potioncoreremastered.sustained_saturation": "持续饱和",
-  "item.minecraft.potion.effect.sustained_saturation": "持续饱和药水",
-  "item.minecraft.potion.effect.long_sustained_saturation": "持续饱和药水",
-  "item.minecraft.potion.effect.strong_sustained_saturation": "持续饱和药水",
-  "item.minecraft.splash_potion.effect.sustained_saturation": "喷溅型持续饱和药水",
-  "item.minecraft.splash_potion.effect.strong_sustained_saturation": "喷溅型持续饱和药水",
-  "item.minecraft.splash_potion.effect.long_sustained_saturation": "喷溅型持续饱和药水",
-  "item.minecraft.lingering_potion.effect.long_sustained_saturation": "滞留型持续饱和药水",
-  "item.minecraft.lingering_potion.effect.strong_sustained_saturation": "滞留型持续饱和药水",
-  "item.minecraft.lingering_potion.effect.sustained_saturation": "滞留型持续饱和药水",
-  "item.minecraft.tipped_arrow.effect.long_sustained_saturation": "持续饱和之箭",
-  "item.minecraft.tipped_arrow.effect.strong_sustained_saturation": "持续饱和之箭",
-  "item.minecraft.tipped_arrow.effect.sustained_saturation": "持续饱和之箭",
 
   "effect.potioncoreremastered.antidote": "解毒",
   "item.minecraft.potion.effect.antidote": "解毒药水",
@@ -296,6 +284,17 @@
   "item.minecraft.tipped_arrow.effect.strong_magic_focus": "魔力聚焦之箭",
   "item.minecraft.tipped_arrow.effect.magic_focus": "魔力聚焦之箭",
 
+  "effect.potioncoreremastered.orderliness": "有序",
+  "item.minecraft.potion.effect.orderliness": "有序药水",
+  "item.minecraft.potion.effect.long_orderliness": "有序药水",
+  "item.minecraft.splash_potion.effect.orderliness": "喷溅型有序药水",
+  "item.minecraft.splash_potion.effect.long_orderliness": "喷溅型有序药水",
+  "item.minecraft.lingering_potion.effect.long_orderliness": "滞留型有序药水",
+  "item.minecraft.lingering_potion.effect.orderliness": "滞留型有序药水",
+  "item.minecraft.tipped_arrow.effect.orderliness": "有序之箭",
+  "item.minecraft.tipped_arrow.effect.long_orderliness": "有序之箭",
+
+
   "effect.potioncoreremastered.broken_armor": "护甲减效",
   "item.minecraft.potion.effect.broken_armor": "护甲减效药水",
   "item.minecraft.potion.effect.long_broken_armor": "护甲减效药水",
@@ -530,16 +529,6 @@
   "item.minecraft.tipped_arrow.effect.no_flight": "禁空之箭",
   "item.minecraft.tipped_arrow.effect.long_no_flight": "禁空之箭",
 
-  "effect.potioncoreremastered.chance": "运气",
-  "item.minecraft.potion.effect.chance": "运气药水",
-  "item.minecraft.potion.effect.long_chance": "运气药水",
-  "item.minecraft.splash_potion.effect.chance": "喷溅型运气药水",
-  "item.minecraft.splash_potion.effect.long_chance": "喷溅型运气药水",
-  "item.minecraft.lingering_potion.effect.long_chance": "滞留型运气药水",
-  "item.minecraft.lingering_potion.effect.chance": "滞留型运气药水",
-  "item.minecraft.tipped_arrow.effect.chance": "运气之箭",
-  "item.minecraft.tipped_arrow.effect.long_chance": "运气之箭",
-
   "effect.potioncoreremastered.broken_magic": "破魔",
   "item.minecraft.potion.effect.broken_magic": "破魔药水",
   "item.minecraft.potion.effect.long_broken_magic": "破魔药水",
@@ -552,5 +541,21 @@
   "item.minecraft.lingering_potion.effect.broken_magic": "滞留型破魔药水",
   "item.minecraft.tipped_arrow.effect.long_broken_magic": "破魔之箭",
   "item.minecraft.tipped_arrow.effect.strong_broken_magic": "破魔之箭",
-  "item.minecraft.tipped_arrow.effect.broken_magic": "破魔之箭"
+  "item.minecraft.tipped_arrow.effect.broken_magic": "破魔之箭",
+
+  "effect.potioncoreremastered.chance": "运气",
+  "item.minecraft.potion.effect.chance": "运气药水",
+  "item.minecraft.potion.effect.long_chance": "运气药水",
+  "item.minecraft.splash_potion.effect.chance": "喷溅型运气药水",
+  "item.minecraft.splash_potion.effect.long_chance": "喷溅型运气药水",
+  "item.minecraft.lingering_potion.effect.long_chance": "滞留型运气药水",
+  "item.minecraft.lingering_potion.effect.chance": "滞留型运气药水",
+  "item.minecraft.tipped_arrow.effect.chance": "运气之箭",
+  "item.minecraft.tipped_arrow.effect.long_chance": "运气之箭",
+
+  "effect.potioncoreremastered.invert": "颠倒",
+  "item.minecraft.potion.effect.invert": "颠倒药水",
+  "item.minecraft.splash_potion.effect.invert": "喷溅型颠倒药水",
+  "item.minecraft.lingering_potion.effect.invert": "滞留型颠倒药水",
+  "item.minecraft.tipped_arrow.effect.invert": "颠倒之箭"
 }

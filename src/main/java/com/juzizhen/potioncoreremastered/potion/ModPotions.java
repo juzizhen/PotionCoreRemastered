@@ -453,7 +453,7 @@ public class ModPotions {
         registerCurse(); // 诅咒 Curse
         registerDisorganization(); // 乱序 Disorganization
         registerDispel(); // 驱散 Dispel
-        registerDrown(); // 溺水 Drown
+        registerDrown(); // 鱼鳃 Drown
         registerExplode(); // 爆破 Explode
         registerCombustion(); // 燃烧 Combustion
         registerLossAccuracy(); // 降低精度 Loss Accuracy
@@ -787,7 +787,7 @@ public class ModPotions {
     }
 
     private static void registerDrown() {
-        // 溺水 Drown
+        // 鱼鳃 Drown
         // 注册普通版
         Registry.register(Registries.POTION,
                 new Identifier(PotionCoreRemastered.MOD_ID, "drown"), DROWN_POTION);

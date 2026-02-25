@@ -12,7 +12,7 @@ Adds a whole lot of potion effects to the game.
  - 诅咒
  - 乱序
  - 驱散
- - 溺水
+ - 鱼鳃
  - 爆破
  - 燃烧
  - 精度下降
@@ -21,7 +21,7 @@ Adds a whole lot of potion effects to the game.
  - 镜像
  - 魔力抑制
  - 破魔
- - 晕头转向 
+ - 头晕
  - 沉重
  - 随机传送
  - 闪电
@@ -40,6 +40,7 @@ Adds a whole lot of potion effects to the game.
  - 修复
  - 复活
  - 高踏
+ - 回家
  - 凋零抗性
  - 稳固
  - 魔力聚焦
@@ -50,14 +51,14 @@ Adds a whole lot of potion effects to the game.
  - 铁皮
  - 魔抗
  - 反伤
- - 魔抗
  - 有序
- - 避雷
+
 
  - 大胃王（暂定）
  - 扭曲（暂定）
  - 强化吸收（暂定）
  - 减最大生命值（暂定）
+ - 避雷
 ##### 中立效果
  - 运气
  - 颠倒

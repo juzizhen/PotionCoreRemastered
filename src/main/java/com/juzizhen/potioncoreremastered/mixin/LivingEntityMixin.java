@@ -39,7 +39,7 @@ public abstract class LivingEntityMixin {
     public abstract boolean damage(DamageSource source, float amount);
 
     /*
-     * 溺水 DROWN
+     * 鱼鳃 DROWN
      */
     @Redirect(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setAir(I)V"))
     private void redirectSetAir(LivingEntity self, int air) {

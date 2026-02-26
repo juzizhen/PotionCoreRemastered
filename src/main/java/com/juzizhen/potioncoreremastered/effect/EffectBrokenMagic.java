@@ -21,7 +21,7 @@ public class EffectBrokenMagic extends StatusEffect {
         EntityAttributeInstance attr = target.getAttributeInstance(ModAttributes.MAGIC_SHIELD);
         if (attr != null) {
             double attrValue = attr.getValue();
-            double value = attrValue - (amplifier + 1) * 0.25;
+            double value = attrValue - attrValue * (amplifier + 1) * 0.1;
             EffectMagicShield.clearAttribute(attr);
             EffectMagicShield.setAttribute(attr, value, EntityAttributeModifier.Operation.ADDITION);
         }
@@ -33,7 +33,7 @@ public class EffectBrokenMagic extends StatusEffect {
         EntityAttributeInstance attr = entity.getAttributeInstance(ModAttributes.MAGIC_SHIELD);
         if (attr != null) {
             double attrValue = attr.getValue();
-            double value = attrValue - (amplifier + 1) * 0.25;
+            double value = attrValue - attrValue * (amplifier + 1) * 0.1;
             EffectMagicShield.clearAttribute(attr);
             EffectMagicShield.setAttribute(attr, value, EntityAttributeModifier.Operation.ADDITION);
         }

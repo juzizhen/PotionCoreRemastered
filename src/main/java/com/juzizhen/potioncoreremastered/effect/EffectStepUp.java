@@ -4,6 +4,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import com.juzizhen.potioncoreremastered.network.StepHeightUpdate;
+import net.minecraft.server.network.ServerPlayerEntity;
+
 
 public class EffectStepUp extends StatusEffect {
     private static final float BASE_STEP_HEIGHT = 0.6f;
@@ -13,24 +16,23 @@ public class EffectStepUp extends StatusEffect {
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        super.onApplied(entity, attributes, amplifier);
-        updateStepHeight(entity, amplifier);
-    }
-
-    @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        updateStepHeight(entity, amplifier);
-    }
+        if (!(entity instanceof ServerPlayerEntity player)) return;
 
-    private void updateStepHeight(LivingEntity entity, int amplifier) {
-        entity.setStepHeight(BASE_STEP_HEIGHT + (amplifier + 1) * 0.5f);
-    }
+        float stepHeight = entity.hasStatusEffect(ModEffects.STEP_UP)
+                ? BASE_STEP_HEIGHT + (amplifier + 1) * 0.5f
+                : BASE_STEP_HEIGHT;
 
+        entity.setStepHeight(stepHeight);
+        StepHeightUpdate.sendStepHeightUpdate(player, stepHeight);
+    }
 
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+        if (!(entity instanceof ServerPlayerEntity player)) return;
+
         entity.setStepHeight(BASE_STEP_HEIGHT);
+        StepHeightUpdate.sendStepHeightUpdate(player, BASE_STEP_HEIGHT);
     }
 
     @Override

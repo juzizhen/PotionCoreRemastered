@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class MagicHudMixin {
 
     @Unique
-    private static final Identifier ICON = new Identifier(PotionCoreRemastered.MOD_ID, "textures/gui/magic_shield");
+    private static final Identifier ICON = new Identifier(PotionCoreRemastered.MOD_ID, "textures/gui/magic_shield.png");
     @Unique
     int extraX = EffectClassifier.safeParseInt(PotionCoreRemastered.CONFIG.MagicShieldHUDextraX, 0);
     @Unique

@@ -3,6 +3,7 @@ package com.juzizhen.potioncoreremastered;
 import com.juzizhen.potioncoreremastered.attribute.ModAttributes;
 import com.juzizhen.potioncoreremastered.config.ModConfig;
 import com.juzizhen.potioncoreremastered.effect.ModEffects;
+import com.juzizhen.potioncoreremastered.network.StepHeightUpdate;
 import com.juzizhen.potioncoreremastered.potion.ModPotions;
 import com.juzizhen.potioncoreremastered.util.EffectClassifier;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -27,6 +28,7 @@ public class PotionCoreRemastered implements ModInitializer {
 		ModPotions.registerPotions();
 
 		EffectClassifier.initialize();
+		StepHeightUpdate.register();
 
 		ServerTickEvents.END_SERVER_TICK.register(this::onServerTick);
 	}

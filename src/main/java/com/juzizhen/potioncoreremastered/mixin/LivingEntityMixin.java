@@ -94,11 +94,9 @@ public abstract class LivingEntityMixin {
         World world = self.getWorld();
         if (world.isClient) return amount;
 
-        // 没有魔法护盾效果 或 不是玩家 → 不处理
         if (!self.hasStatusEffect(ModEffects.MAGIC_SHIELD)) return amount;
         if (!(self instanceof PlayerEntity)) return amount;
 
-        // 只处理魔法伤害（你可以抽成单独方法更清晰）
         if (!source.isOf(DamageTypes.MAGIC)
                 && !source.isOf(DamageTypes.INDIRECT_MAGIC)
                 && !source.isOf(DamageTypes.WITHER)
@@ -112,7 +110,7 @@ public abstract class LivingEntityMixin {
         double magicShield = attr.getValue();
         if (magicShield <= 0) return amount;
 
-        if (amount >= magicShield) { // 破盾
+        if (amount >= magicShield) {
             EffectMagicShield.isOverlay = false;
             self.removeStatusEffect(ModEffects.MAGIC_SHIELD);
             return (float) (amount - magicShield);
@@ -218,6 +216,21 @@ public abstract class LivingEntityMixin {
 
             if (self.hasStatusEffect(ModEffects.MAGIC_SHIELD)) {
                 EffectMagicShield.isOverlay = true;
+                StatusEffectInstance Effect = self.getStatusEffect(ModEffects.MAGIC_SHIELD);
+                if (Effect != null) {
+                    int durationTicks = Effect.getDuration() + effect.getDuration();
+                    int amplifier = Effect.getAmplifier();
+                    self.removeStatusEffect(ModEffects.MAGIC_SHIELD);
+                    StatusEffectInstance NewEffect = new StatusEffectInstance(
+                            ModEffects.MAGIC_SHIELD,
+                            durationTicks,
+                            amplifier,
+                            effect.isAmbient(),
+                            effect.shouldShowParticles(),
+                            effect.shouldShowIcon()
+                    );
+                    self.addStatusEffect(NewEffect, self);
+                }
             }
 
             if (self instanceof PlayerEntity) {
@@ -232,6 +245,10 @@ public abstract class LivingEntityMixin {
         }
     }
 
+    /*
+     * 魔法聚焦 MAGIC_FOCUS
+     * 魔法抑制 MAGIC_INHIBITION
+     */
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true, ordinal = 0)
     private float modifyMagicDamage(float amount, DamageSource source) {
         LivingEntity attacker = EffectMagicFocus.getLivingEntity(source);

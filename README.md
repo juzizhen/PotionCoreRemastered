@@ -1,89 +1,104 @@
-# PotionCoreRemastered
-Adds a whole lot of potion effects to the game.
+# ✨ PotionCoreRemastered
 
-- 部分灵感和部分贴图来源于PotionCore但没有使用其开源的代码。
-- 我在PotionCore的基础上有改进。
-- 这个模组是提供给整合包作者的，所以不自带合成（酿造）配方，需要的可以使用Kubejs自定义配方。
+> Adds a lot of potion effects to the game.
 
-## 已完成效果
-##### 正面效果
-- 解毒
-- 提高精度
-- 祝福
-- 炸裂
-- 攀爬
-- 净化
-- 镶钻
-- 延长
-- 修复
-- 复活
-- 高踏
-- 回家
-- 凋零抗性
-- 稳固
-- 魔力聚焦
-- 飞行
-- 爱情
-- 地面传送
-- 延伸
-- 铁皮
-- 魔抗
-- 反伤
-- 有序
+![Header Image](https://raw.githubusercontent.com/juzizhen/PotionCoreRemastered/07a99391b5e74768a902b97524b906b40b125a7b/src/main/resources/assets/potioncoreremastered/mcmod_icon.png?token=GHSAT0AAAAAADSANNQD5QVWC6YWIQRMM66Y2NAOASA)
 
-- 大胃王（暂定）
-- 扭曲（暂定）
-- 强化吸收（暂定）
-- 减最大生命值（暂定）
-- 避雷（暂定）
-##### 负面效果
-- 护甲减效
-- 诅咒
-- 乱序
-- 驱散
-- 鱼鳃
-- 爆破
-- 燃烧
-- 精度下降
-- 脆弱
-- 腐蚀
-- 镜像
-- 魔力抑制
-- 破魔
-- 头晕
-- 沉重
-- 随机传送
-- 闪电
-- 发射
-- 药水病
-- 禁空
-##### 中立效果
- - 运气
- - 颠倒
+---
 
-### 正面效果与负面效果对应表
+## 📖 Introduction
+- Some inspiration and certain textures come from [PotionCore](https://github.com/Tmtravlr/PotionCore), but none of its open-source code was used.
+  - Improvements have been made based on PotionCore.
+  - This mod does not include crafting (brewing) recipes; if needed, you can create your own using [KubeJS](https://github.com/KubeJS-Mods/KubeJS).
+  - This repository is licensed under **GPL-3.0**.
 
-| 正面效果 | 负面效果 |
-|:----:|:----:|
-| 解毒剂  |  中毒  |
-| 提高精度 | 精度下降 |
-|  祝福  |  诅咒  |
-|  铁皮  | 护甲减效 |
-|  魔抗  | 魔法破防 |
-|  净化  |  驱散  |
-| 水下呼吸 |  鱼鳃  |
-|  防火  |  燃烧  |
-| 魔力聚焦 | 魔力抑制 |
-|  修复  |  腐蚀  |
-|  缓降  |  飘浮  |
-| 抗性提升 |  脆弱  |
-| 跳跃提升 |  沉重  |
-|  夜视  |  失明  |
-|  急迫  | 挖掘疲劳 |
-|  饱和  |  饥饿  |
-| 瞬间治疗 | 瞬间伤害 |
-| 生命恢复 |  凋零  |
-|  速度  |  缓慢  |
-|  力量  |  虚弱  |
-|  幸运  |  霉运  |
-|  有序  |  乱序  |
+---
+
+## 🧪 Effects Overview
+
+### ✅ Positive Effect
+- Antidote
+- Improve Accuracy
+- Bless
+- Burst
+- Climb
+- Cure
+- Diamond Skin
+- Extension
+- Repair
+- Revival
+- Step Up
+- Teleport Spawn
+- Purity
+- Solid Core
+- Magic Focus
+- Flight
+- Love
+- Teleport Surface
+- Reach
+- Iron Skin
+- Magic Shield
+- Counterattack
+- Orderliness
+
+---
+
+### ❌ Negative Effects
+- Broken Armor
+- Curse
+- Disorganization
+- Dispel
+- Drown
+- Explode
+- Combustion
+- Loss Accuracy
+- Vulnerable
+- Rust
+- Mirror
+- Magic Inhibition
+- Broken Magic
+- Spin
+- Weight
+- Random Teleport
+- Lightning
+- Launch
+- potion sickness (Only effect)
+- No Flight
+- Depletion
+
+---
+
+### ⚖️ Neutral Effect
+- Chance
+- Invert
+
+---
+
+## 🔄 Inverted Effect Correspondence Table
+
+|     Beneficial     |      Harmful       |
+|:------------------:|:------------------:|
+|      Antidote      |       Poison       |
+|  Improve Accuracy  |   Loss Accuracy    |
+|       Bless        |       Curse        |
+|     Iron Skin      |    Broken Armor    |
+|    Magic Shield    |    Broken Magic    |
+|        Cure        |       Dispel       |
+|  Water Breathing   |       Drown        |
+|  Fire Resistance   |     Combustion     |
+|    Magic Focus     |  Magic Inhibition  |
+|       Repair       |        Rust        |
+|    Slow Falling    |     Levitation     |
+|     Resistance     |     Vulnerable     |
+|     Jump Boost     |       Weight       |
+|    Night Vision    |     Blindness      |
+|       Haste        |   Mining Fatigue   |
+|     Saturation     |       Hunger       |
+|   Instant Health   |   Instant Damage   |
+|    Regeneration    |       Wither       |
+|       Speed        |      Slowness      |
+|      Strength      |      Weakness      |
+|        Luck        |       Unluck       |
+|    Orderliness     |  Disorganization   |
+|    Health Boost    |     Depletion      |
+|       Flight       |     No Flight      |

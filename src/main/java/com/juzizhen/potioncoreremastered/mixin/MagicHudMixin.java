@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(InGameHud.class)
 @Environment(EnvType.CLIENT)
-public abstract class InGameHudMixin {
+public abstract class MagicHudMixin {
 
     @Unique
     private static final Identifier ICON = new Identifier(PotionCoreRemastered.MOD_ID, "textures/gui/magic_shield");

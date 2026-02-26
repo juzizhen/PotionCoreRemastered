@@ -14,15 +14,11 @@ public class EffectMagicFocus extends StatusEffect {
     }
 
     public static @Nullable LivingEntity getLivingEntity(DamageSource source) {
-        LivingEntity attacker = null;
+        LivingEntity attacker;
         if (source.getAttacker() instanceof PotionEntity potion) {
-            if (potion.getOwner() instanceof LivingEntity owner) {
-                attacker = owner;
-            }
+            attacker = (LivingEntity) potion.getOwner();
         } else if (source.getAttacker() instanceof AreaEffectCloudEntity cloud) {
-            if (cloud.getOwner() instanceof LivingEntity owner) {
-                attacker = owner;
-            }
+            attacker = cloud.getOwner();
         } else {
             attacker = source.getAttacker() instanceof LivingEntity living ? living : null;
         }

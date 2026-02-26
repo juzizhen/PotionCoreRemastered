@@ -11,6 +11,7 @@ public class ModEffects {
     public static final StatusEffect ANTIDOTE = new EffectAntidote();
     public static final StatusEffect IMPROVE_ACCURACY = new EffectImproveAccuracy();
     public static final StatusEffect BLESS = new EffectBless();
+    public static final StatusEffect BURST = new EffectBurst();
     public static final StatusEffect CLIMB = new EffectClimb();
     public static final StatusEffect CURE = new EffectCure();
     public static final StatusEffect DIAMOND_SKIN = new EffectDiamondSkin();
@@ -21,14 +22,14 @@ public class ModEffects {
     public static final StatusEffect TELEPORT_SPAWN = new EffectTeleportSpawn();
     public static final StatusEffect PURITY = new EffectPurity();
     public static final StatusEffect SOLID_CORE = new EffectSolidCore();
+    public static final StatusEffect MAGIC_FOCUS = new EffectMagicFocus();
     public static final StatusEffect FLIGHT = new EffectFlight();
     public static final StatusEffect LOVE = new EffectLove();
     public static final StatusEffect TELEPORT_SURFACE = new EffectTeleportSurface();
     public static final StatusEffect REACH = new EffectReach();
     public static final StatusEffect IRON_SKIN = new EffectIronSkin();
-    public static final StatusEffect COUNTERATTACK = new EffectCounterattack();
     public static final StatusEffect MAGIC_SHIELD = new EffectMagicShield();
-    public static final StatusEffect MAGIC_FOCUS = new EffectMagicFocus();
+    public static final StatusEffect COUNTERATTACK = new EffectCounterattack();
     public static final StatusEffect ORDERLINESS = new EffectOrderliness();
 
     // 负面效果
@@ -51,8 +52,8 @@ public class ModEffects {
     public static final StatusEffect LAUNCH = new EffectLaunch();
     public static final StatusEffect POTION_SICKNESS = new EffectPotionSickness();
     public static final StatusEffect NO_FLIGHT = new EffectNoFlight();
-    public static final StatusEffect BURST = new EffectBurst();
     public static final StatusEffect BROKEN_MAGIC = new EffectBrokenMagic();
+    public static final StatusEffect DEPLETION = new EffectDepletion();
 
     //中立效果
     public static final StatusEffect CHANCE = new EffectChance();
@@ -105,6 +106,9 @@ public class ModEffects {
                 new Identifier(PotionCoreRemastered.MOD_ID, "solid_core"), SOLID_CORE);
 
         Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "magic_focus"), MAGIC_FOCUS);
+
+        Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "flight"), FLIGHT);
 
         Registry.register(Registries.STATUS_EFFECT,
@@ -120,13 +124,10 @@ public class ModEffects {
                 new Identifier(PotionCoreRemastered.MOD_ID, "iron_skin"), IRON_SKIN);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier(PotionCoreRemastered.MOD_ID, "counterattack"), COUNTERATTACK);
-
-        Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "magic_shield"), MAGIC_SHIELD);
 
         Registry.register(Registries.STATUS_EFFECT,
-                new Identifier(PotionCoreRemastered.MOD_ID, "magic_focus"), MAGIC_FOCUS);
+                new Identifier(PotionCoreRemastered.MOD_ID, "counterattack"), COUNTERATTACK);
 
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "orderliness"), ORDERLINESS);
@@ -193,6 +194,9 @@ public class ModEffects {
 
         Registry.register(Registries.STATUS_EFFECT,
                 new Identifier(PotionCoreRemastered.MOD_ID, "broken_magic"), BROKEN_MAGIC);
+
+        Registry.register(Registries.STATUS_EFFECT,
+                new Identifier(PotionCoreRemastered.MOD_ID, "depletion"), DEPLETION);
 
         /*
          * 中立效果

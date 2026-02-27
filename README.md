@@ -4,6 +4,8 @@
 
 ![Header Image](https://i.ibb.co/q351946C/mcmod-icon.png)
 
+### 👉[中文 README_zh](https://github.com/juzizhen/PotionCoreRemastered/blob/main/README_zh.md)👈
+
 ---
 
 ## 📖 Introduction

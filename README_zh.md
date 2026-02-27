@@ -2,7 +2,7 @@
 
 > 为游戏增加了许多药水效果。
 
-![Header Image](https://raw.githubusercontent.com/juzizhen/PotionCoreRemastered/07a99391b5e74768a902b97524b906b40b125a7b/src/main/resources/assets/potioncoreremastered/mcmod_icon.png?token=GHSAT0AAAAAADSANNQD5QVWC6YWIQRMM66Y2NAOASA)
+![Header Image](https://raw.githubusercontent.com/juzizhen/PotionCoreRemastered/d369a8a9c019952486d87dd3dbc1ec75d3ef1615/src/main/resources/assets/potioncoreremastered/mcmod_icon.png?token=GHSAT0AAAAAADSANNQCSRW3AUCBJT4KWFZ42NBPFNQ)
 
 ---
 

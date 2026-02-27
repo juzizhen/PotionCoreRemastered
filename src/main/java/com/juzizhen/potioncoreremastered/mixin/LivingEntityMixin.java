@@ -62,20 +62,29 @@ public abstract class LivingEntityMixin {
             Entity owner = projectile.getOwner();
             if (owner instanceof LivingEntity living) {
                 if (living.hasStatusEffect(ModEffects.LOSS_ACCURACY)) {
-                    int level = Objects.requireNonNull(living.getStatusEffect(ModEffects.LOSS_ACCURACY)).getAmplifier() + 1;
-                    amount -= level * 4.0f;
+                    StatusEffectInstance effect = living.getStatusEffect(ModEffects.LOSS_ACCURACY);
+                    if (effect != null) {
+                        int level = effect.getAmplifier() + 1;
+                        amount -= level * 4.0f;
+                    }
                 }
 
                 if (living.hasStatusEffect(ModEffects.IMPROVE_ACCURACY)) {
-                    int level = Objects.requireNonNull(living.getStatusEffect(ModEffects.IMPROVE_ACCURACY)).getAmplifier() + 1;
-                    amount += level * 3.0f;
+                    StatusEffectInstance effect = living.getStatusEffect(ModEffects.IMPROVE_ACCURACY);
+                    if (effect != null) {
+                        int level = effect.getAmplifier() + 1;
+                        amount += level * 3.0f;
+                    }
                 }
             }
         }
 
         if (self.hasStatusEffect(ModEffects.VULNERABLE)) {
-            int level = Objects.requireNonNull(self.getStatusEffect(ModEffects.VULNERABLE)).getAmplifier() + 1;
-            amount *= (1.0F + 0.5F * level);
+            StatusEffectInstance effect = self.getStatusEffect(ModEffects.VULNERABLE);
+            if (effect != null) {
+                int level = effect.getAmplifier() + 1;
+                amount *= (1.0F + 0.5F * level);
+            }
         }
 
         if (amount < 0.0F) {

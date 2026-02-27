@@ -6,24 +6,11 @@
     "EntityMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "ReachMixin$ChestStateManagerMixin",
-    "ReachMixin$ForgingScreenHandlerMixin",
-    "ReachMixin$InventoryValidationMixin",
-    "ReachMixin$ItemMixin",
-    "ReachMixin$LivingEntityMixin",
-    "ReachMixin$PlayerEntityInteractionHandlerMixin",
-    "ReachMixin$PlayerEntityMixin",
-    "ReachMixin$ScreenHandlerMixin",
-    "ReachMixin$ServerPlayerInteractionManagerMixin",
-    "ReachMixin$ServerPlayNetworkHandlerMixin",
-    "ReachMixin$VehicleInventoryValidationMixin",
     "ServerPlayerEntityMixin"
   ],
   "client": [
     "KeyboardInputMixin",
-    "MagicHudMixin",
-    "ReachMixin$ClientPlayerInteractionManagerMixin",
-    "ReachMixin$GameRendererMixin"
+    "MagicHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

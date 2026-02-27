@@ -2,7 +2,7 @@
 
 > Adds a lot of potion effects to the game.
 
-![Header Image](https://raw.githubusercontent.com/juzizhen/PotionCoreRemastered/d369a8a9c019952486d87dd3dbc1ec75d3ef1615/src/main/resources/assets/potioncoreremastered/mcmod_icon.png?token=GHSAT0AAAAAADSANNQCSRW3AUCBJT4KWFZ42NBPFNQ)
+![Header Image](https://i.ibb.co/q351946C/mcmod-icon.png)
 
 ---
 

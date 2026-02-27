@@ -10,10 +10,10 @@
 
 ## 📖 Introduction
 - Some inspiration and certain textures come from [PotionCore](https://github.com/Tmtravlr/PotionCore), but none of its open-source code was used.
-  - Improvements have been made based on PotionCore.
-  - This mod does not include crafting (brewing) recipes; if needed, you can create your own using [KubeJS](https://github.com/KubeJS-Mods/KubeJS).
-  - This repository is licensed under **GPL-3.0**.
-
+- Improvements have been made based on PotionCore.
+- This mod does not include crafting (brewing) recipes; if needed, you can create your own using [KubeJS](https://github.com/KubeJS-Mods/KubeJS).
+- This repository is licensed under **GPL-3.0**.
+- If you encounter any problems, please be sure to submit an issue at [**issues**](https://github.com/juzizhen/PotionCoreRemastered/issues)!
 ---
 
 ## 🧪 Effects Overview

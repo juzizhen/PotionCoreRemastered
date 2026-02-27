@@ -11,6 +11,7 @@
 - 在 PotionCore 的基础上进行了改进。
 - 本模组不自带合成（酿造）配方，需要的可以自行使用 [KubeJS](https://github.com/KubeJS-Mods/KubeJS) 自定义配方。
 - 本仓库开源许可为 **GPL-3.0**。
+- 遇到任何问题请务必到[**issues**](https://github.com/juzizhen/PotionCoreRemastered/issues)提交问题！
 
 ---
 

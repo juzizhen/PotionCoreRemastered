@@ -18,8 +18,8 @@ public class EffectChance extends StatusEffect {
         if (entity.getWorld().isClient) return;
 
         Set<StatusEffect> allEffect = new HashSet<>();
-        allEffect.addAll(EffectClassifier.BAD_EFFECTS);
         allEffect.addAll(EffectClassifier.GOOD_EFFECTS);
+        allEffect.addAll(EffectClassifier.BAD_EFFECTS);
         allEffect.remove(ModEffects.CHANCE);
         allEffect.remove(ModEffects.BLESS);
         allEffect.remove(ModEffects.CURSE);
@@ -29,7 +29,6 @@ public class EffectChance extends StatusEffect {
         int count = amplifier + 1;
 
         List<StatusEffect> effectList = new ArrayList<>(allEffect);
-        effectList.remove(this);
         count = Math.min(count, effectList.size());
 
         Collections.shuffle(effectList);
